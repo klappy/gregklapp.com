@@ -214,6 +214,43 @@
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowfullscreen
       ></iframe>
+      <!-- 1) Load the API -->
+      <script src="https://www.youtube.com/iframe_api"></script>
+      <!-- 2) Place this where you want your player: -->
+      <div id="yt-player"></div>
+      <script>
+        let player;
+        function onYouTubeIframeAPIReady() {
+          player = new YT.Player('yt-player', {
+            width: '100%',
+            // height will be set automatically via CSS/aspect-ratio
+            videoId: 'M8sGE5n-i1Q',
+            playerVars: {
+              autoplay: 1,
+              start: 0,
+              end: 285,       // stop at 4:45
+              controls: 1,
+              modestbranding: 1
+            },
+            events: {
+              onStateChange: (e) => {
+                // When the video “ends” (at 4:45)…
+                if (e.data === YT.PlayerState.ENDED) {
+                  player.seekTo(0);      // jump back to 0
+                  player.playVideo();    // and restart
+                }
+              }
+            }
+          });
+        }
+      </script>
+      <p>
+        <a
+          href="https://www.eatingyoualive.com/"
+          target="_blank"
+          >Learn more about the documentary</a
+        >
+      </p>
     </section>
 
     <section id="contact">
