@@ -4,6 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>I Didn’t Believe It Until It Happened To Me</title>
+    <!-- 1) Load the API -->
+    <script src="https://www.youtube.com/iframe_api"></script>
     <style>
       /* Reset & Base Styles */
       *,
@@ -71,16 +73,6 @@
         margin-bottom: 1.5rem;
         box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
       }
-      /* header h1 {
-        font-size: 1.25rem;
-        margin-bottom: 0.5rem;
-        color: #222;
-      }
-      header p {
-        font-size: 1.25rem;
-        margin-bottom: 1.75rem;
-        color: #555;
-      } */
       .btn {
         display: inline-block;
         padding: 0.85rem 1.75rem;
@@ -148,6 +140,8 @@
       }
       iframe#yt-player {
         width: 100%;
+        max-width: 100%;
+        height: auto;
         /* 16:9 ratio = 16 ÷ 9 = 1.777… */
         aspect-ratio: 16 / 9;
         border: 0;           /* optional */
@@ -207,8 +201,6 @@
     <section id="documentary">
       <h2>As Seen on Eating You Alive</h2>
       <p>This powerful story was featured in the documentary Eating You Alive, bringing his journey and message to a wider audience.</p>
-      <!-- 1) Load the API -->
-      <script src="https://www.youtube.com/iframe_api"></script>
       <!-- 2) Place this where you want your player: -->
       <div id="yt-player"></div>
       <script>
