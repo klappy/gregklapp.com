@@ -146,7 +146,7 @@
         }
         
       }
-      iframe.responsive-video {
+      iframe#yt-player {
         width: 100%;
         /* 16:9 ratio = 16 ÷ 9 = 1.777… */
         aspect-ratio: 16 / 9;
@@ -207,13 +207,6 @@
     <section id="documentary">
       <h2>As Seen on Eating You Alive</h2>
       <p>This powerful story was featured in the documentary Eating You Alive, bringing his journey and message to a wider audience.</p>
-      <iframe
-        class="responsive-video"
-        src="https://www.youtube.com/embed/M8sGE5n-i1Q?autoplay=1&loop=1&playlist=M8sGE5n-i1Q&end=285"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen
-      ></iframe>
       <!-- 1) Load the API -->
       <script src="https://www.youtube.com/iframe_api"></script>
       <!-- 2) Place this where you want your player: -->
@@ -222,7 +215,6 @@
         let player;
         function onYouTubeIframeAPIReady() {
           player = new YT.Player('yt-player', {
-            width: '100%',
             // height will be set automatically via CSS/aspect-ratio
             videoId: 'M8sGE5n-i1Q',
             playerVars: {
