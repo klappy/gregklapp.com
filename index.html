@@ -22,13 +22,35 @@
         font-family: "EB Garamond", serif;
         line-height: 1.6;
         color: #333;
-        background: #f0f2f5;
-        padding-top: 70px;
+        background: linear-gradient(135deg, #f8fffe 0%, #e8f5f3 50%, #f0f8f5 100%);
+        padding-top: 80px;
         overflow-x: hidden;
         font-size: 1.4rem;
       }
       .red {
-        color: red;
+        color: #dc3545;
+        font-weight: 600;
+      }
+      
+      /* Animations */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      
+      @keyframes pulse {
+        0%, 100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.05);
+        }
       }
       /* Navigation */
       nav {
@@ -36,107 +58,433 @@
         top: 0;
         left: 0;
         width: 100%;
-        background: rgba(255, 255, 255, 0.9);
-        padding: 1rem 3rem;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 1rem 2rem;
         display: flex;
-        justify-content: center;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        border-bottom: 1px solid #eaeaea;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        border-bottom: 1px solid #e8f5f3;
         z-index: 1000;
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-        transition: background 0.3s ease, padding 0.3s ease;
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        transition: all 0.3s ease;
       }
+      
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+      }
+      
       nav a {
-        margin: 0 1rem;
         text-decoration: none;
         color: #333;
         font-weight: 500;
-        transition: color 0.3s ease;
+        font-size: 1.1rem;
+        transition: all 0.3s ease;
+        position: relative;
       }
+      
       nav a:hover {
         color: #28a745;
+        transform: translateY(-1px);
+      }
+      
+      nav a::after {
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: linear-gradient(90deg, #28a745, #20c997);
+        transition: width 0.3s ease;
+      }
+      
+      nav a:hover::after {
+        width: 100%;
+      }
+      
+      .nav-cta {
+        background: linear-gradient(135deg, #28a745, #20c997) !important;
+        color: white !important;
+        padding: 0.7rem 1.5rem !important;
+        border-radius: 50px !important;
+        font-weight: 600 !important;
+        box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3) !important;
+        animation: pulse 2s infinite;
+      }
+      
+      .nav-cta:hover {
+        transform: translateY(-2px) !important;
+        box-shadow: 0 6px 25px rgba(40, 167, 69, 0.4) !important;
+        animation: none;
+      }
+      
+      .nav-cta::after {
+        display: none !important;
       }
 
       /* Hero Section */
       header {
-        padding: 8rem 1rem 4rem;
+        padding: 10rem 2rem 6rem;
         text-align: center;
-        background: linear-gradient(135deg, #ffffff, #e6e9f0);
-        border-bottom: 2px solid #eaeaea;
+        background: linear-gradient(135deg, #ffffff 0%, #f8fffe 50%, #e8f5f3 100%);
+        border-bottom: none;
+        position: relative;
+        overflow: hidden;
       }
+      
+      header::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="%2328a745" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="%2320c997" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+        opacity: 0.3;
+        z-index: 0;
+      }
+      
+      header > * {
+        position: relative;
+        z-index: 1;
+      }
+      
       header img {
-        max-width: 500px;
+        max-width: 400px;
         width: 100%;
         height: auto;
-        border-radius: 8px;
-        margin-bottom: 1.5rem;
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        border-radius: 15px;
+        margin-bottom: 2rem;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease;
+        animation: fadeInUp 1s ease;
       }
+      
+      header img:hover {
+        transform: translateY(-5px) scale(1.02);
+      }
+      
+      .hero-title {
+        font-size: 3.5rem;
+        font-weight: 700;
+        color: #2c5530;
+        margin-bottom: 1.5rem;
+        line-height: 1.2;
+        animation: fadeInUp 1s ease 0.2s both;
+      }
+      
+      .hero-subtitle {
+        font-size: 1.8rem;
+        color: #5a6c57;
+        margin-bottom: 2.5rem;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+        animation: fadeInUp 1s ease 0.4s both;
+        font-style: normal;
+      }
+      
+      .hero-cta-group {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+        animation: fadeInUp 1s ease 0.6s both;
+      }
+      
+      .btn-primary {
+        display: inline-block;
+        padding: 1.2rem 3rem;
+        background: linear-gradient(135deg, #28a745, #20c997);
+        color: #fff;
+        text-decoration: none;
+        border-radius: 50px;
+        font-weight: 700;
+        font-size: 1.3rem;
+        transition: all 0.3s ease;
+        box-shadow: 0 8px 25px rgba(40, 167, 69, 0.3);
+        position: relative;
+        overflow: hidden;
+      }
+      
+      .btn-primary::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+        transition: left 0.5s ease;
+      }
+      
+      .btn-primary:hover::before {
+        left: 100%;
+      }
+      
+      .btn-primary:hover {
+        background: linear-gradient(135deg, #218838, #1a9d91);
+        transform: translateY(-3px);
+        box-shadow: 0 12px 35px rgba(40, 167, 69, 0.4);
+      }
+      
       .btn {
         display: inline-block;
         padding: 0.85rem 1.75rem;
         background: #28a745;
         color: #fff;
         text-decoration: none;
-        border-radius: 0;
+        border-radius: 8px;
         font-weight: 600;
-        transition: background 0.3s ease, transform 0.2s ease;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(40, 167, 69, 0.2);
       }
+      
       .btn:hover {
         background: #218838;
         transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(40, 167, 69, 0.3);
+      }
+      
+      .hero-guarantee {
+        font-size: 1rem;
+        color: #666;
+        font-style: italic;
+        margin-top: 1rem;
       }
 
       /* Content Sections */
       section {
-        padding: 4rem 1rem;
-        max-width: 800px;
-        margin: 0 auto 2rem;
+        padding: 5rem 2rem;
+        max-width: 900px;
+        margin: 0 auto 3rem;
+        background: rgba(255, 255, 255, 0.8);
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(10px);
+        position: relative;
+        animation: fadeInUp 0.8s ease;
       }
+      
+      section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, #28a745, #20c997, #17a2b8);
+        border-radius: 20px 20px 0 0;
+      }
+      
       h1 {
         font-size: 2rem;
         margin-bottom: 1rem;
         color: #222;
       }
+      
       h2 {
-        font-size: 1.2rem;
-        margin-bottom: 1rem;
-        color: #222;
-        border-bottom: 2px solid #eaeaea;
-        padding-bottom: 0.5rem;
+        font-size: 2.2rem;
+        margin-bottom: 2rem;
+        color: #2c5530;
+        border-bottom: none;
+        padding-bottom: 0;
+        position: relative;
+        text-align: center;
       }
+      
+      h2::after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 3px;
+        background: linear-gradient(90deg, #28a745, #20c997);
+        border-radius: 2px;
+      }
+      
       p {
-        margin-bottom: 1rem;
+        margin-bottom: 1.5rem;
         color: #555;
-        font-style: italic;
+        font-style: normal;
+        font-size: 1.2rem;
+        line-height: 1.8;
+      }
+      
+      .section-cta {
+        text-align: center;
+        margin-top: 2.5rem;
+        padding-top: 2rem;
+        border-top: 1px solid #e8f5f3;
       }
 
+      /* Documentary Section Special Styling */
+      #documentary {
+        background: linear-gradient(135deg, #2c5530 0%, #3d6b42 100%);
+        color: white;
+        box-shadow: 0 15px 40px rgba(44, 85, 48, 0.3);
+      }
+      
+      #documentary::before {
+        background: linear-gradient(90deg, #ffffff, #e8f5f3, #ffffff);
+      }
+      
+      #documentary h2 {
+        color: white;
+      }
+      
+      #documentary p {
+        color: #e8f5f3;
+      }
+      
+      #documentary a {
+        color: #20c997;
+        font-weight: 600;
+        text-decoration: underline;
+        transition: color 0.3s ease;
+      }
+      
+      #documentary a:hover {
+        color: #17a2b8;
+      }
+      
+      .video-container {
+        margin: 2rem 0;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+        position: relative;
+      }
+      
+      .video-container::before {
+        content: '';
+        position: absolute;
+        top: -5px;
+        left: -5px;
+        right: -5px;
+        bottom: -5px;
+        background: linear-gradient(45deg, #28a745, #20c997, #17a2b8, #28a745);
+        z-index: -1;
+        border-radius: 20px;
+        background-size: 400% 400%;
+        animation: gradientShift 3s ease infinite;
+      }
+      
+      @keyframes gradientShift {
+        0%, 100% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+      }
+      
       /* Footer */
       footer {
-        background: #fafafa;
+        background: linear-gradient(135deg, #2c5530, #3d6b42);
         text-align: center;
-        padding: 2rem 1rem;
-        font-size: 0.9rem;
-        color: #777;
-        border-top: 1px solid #eaeaea;
+        padding: 3rem 2rem;
+        font-size: 1rem;
+        color: #e8f5f3;
+        border-top: none;
+        margin-top: 4rem;
+      }
+      
+      footer p {
+        margin: 0;
+        font-style: normal;
       }
 
       /* Responsive */
-      @media (max-width: 600px) {
-        header {
-          padding: 4rem 1rem 2rem;
+      @media (max-width: 768px) {
+        .nav-links {
+          gap: 1rem;
         }
+        
+        nav a {
+          font-size: 1rem;
+        }
+        
+        .nav-cta {
+          padding: 0.5rem 1rem !important;
+          font-size: 0.9rem !important;
+        }
+        
+        .hero-title {
+          font-size: 2.5rem;
+        }
+        
+        .hero-subtitle {
+          font-size: 1.4rem;
+          padding: 0 1rem;
+        }
+        
+        section {
+          padding: 3rem 1.5rem;
+          margin: 0 auto 2rem;
+        }
+        
+        h2 {
+          font-size: 1.8rem;
+        }
+        
+        .transformation-stats {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 1rem;
+        }
+      }
+      
+      @media (max-width: 600px) {
+        body {
+          padding-top: 70px;
+        }
+        
         nav {
           padding: 0.5rem 1rem;
+          flex-direction: column;
+          gap: 1rem;
         }
-        nav a {
-          margin: 0 0.5rem;
+        
+        .nav-links {
+          gap: 0.5rem;
+          flex-wrap: wrap;
+          justify-content: center;
         }
+        
+        .nav-cta {
+          order: -1;
+        }
+        
+        header {
+          padding: 6rem 1rem 4rem;
+        }
+        
+        .hero-title {
+          font-size: 2rem;
+        }
+        
+        .hero-subtitle {
+          font-size: 1.2rem;
+        }
+        
+        .btn-primary {
+          padding: 1rem 2rem;
+          font-size: 1.1rem;
+        }
+        
         section {
           padding: 2rem 1rem;
         }
         
+        .transformation-stats {
+          grid-template-columns: 1fr;
+        }
+        
+        h2 {
+          font-size: 1.6rem;
+        }
       }
       iframe#yt-player {
         width: 100%;
@@ -259,29 +607,31 @@
   </head>
   <body>
     <nav>
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#author">Author</a>
-      <a href="#documentary">Documentary</a>
-      <a href="#story">My Story</a>
-      <a href="#contact">Contact</a>
+      <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#author">Author</a>
+        <a href="#documentary">Documentary</a>
+        <a href="#story">My Story</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <a href="https://www.amazon.com/Didnt-Believe-Until-Happened-Me/dp/B0D57YGMNR/ref=sr_1_1" target="_blank" class="nav-cta">Get Your Copy</a>
     </nav>
 
     <header id="home">
-      <!-- Replace "cover.jpg" with your actual cover image filename -->
-      <img src="./assets/bookcover.jpg" alt="Book Cover" />
-      <h1>I Didn’t Believe It Until <br />It Happened To Me</h1>
-      <p>
-        <b>H</b>ow a stroke, diabetes and a heart bypass <br />gave me the
-        <span class="red">motivation</span> to stick with a <br />"whole food, plant based" way of
-        life.
+      <img src="./assets/bookcover.jpg" alt="I Didn't Believe It Until It Happened To Me - Book Cover" />
+      <h1 class="hero-title">I Didn't Believe It Until <br />It Happened To Me</h1>
+      <p class="hero-subtitle">
+        <strong>How a stroke, diabetes and a heart bypass gave me the <span class="red">motivation</span> to stick with a "whole food, plant based" way of life.</strong>
       </p>
-      <a
-        class="btn"
-        href="https://www.amazon.com/Didnt-Believe-Until-Happened-Me/dp/B0D57YGMNR/ref=sr_1_1"
-        target="_blank"
-        >Buy on Amazon</a
-      >
+      <div class="hero-cta-group">
+        <a
+          class="btn-primary"
+          href="https://www.amazon.com/Didnt-Believe-Until-Happened-Me/dp/B0D57YGMNR/ref=sr_1_1"
+          target="_blank"
+        >🚀 Get Your Copy Now</a>
+        <p class="hero-guarantee">Transform your health with this inspiring journey</p>
+      </div>
     </header>
 
     <section id="about">
@@ -292,6 +642,13 @@
         lifestyle. Filled with personal stories, practical tips, and scientific insights, this book
         is a guide for anyone seeking to transform their health and embrace new beginnings.
       </p>
+      <div class="section-cta">
+        <a
+          class="btn"
+          href="https://www.amazon.com/Didnt-Believe-Until-Happened-Me/dp/B0D57YGMNR/ref=sr_1_1"
+          target="_blank"
+        >📚 Order Your Copy Today</a>
+      </div>
     </section>
 
     <section id="author">
@@ -301,6 +658,13 @@
         story and inspiring others to take control of their health. His message is one of hope,
         empowerment, and the belief that change is possible at any stage of life.
       </p>
+      <div class="section-cta">
+        <a
+          class="btn"
+          href="https://www.amazon.com/Didnt-Believe-Until-Happened-Me/dp/B0D57YGMNR/ref=sr_1_1"
+          target="_blank"
+        >🌱 Start Your Transformation</a>
+      </div>
     </section>
 
     <section id="documentary">
