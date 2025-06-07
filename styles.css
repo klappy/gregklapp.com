@@ -317,6 +317,7 @@ header img:hover {
 
 .hero-subtitle {
   font-size: 1.8rem;
+  font-style: italic;
   color: #5a6c57;
   margin-bottom: 2.5rem;
   max-width: 600px;
