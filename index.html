@@ -598,6 +598,119 @@
         content: "📄";
         font-size: 1.2rem;
       }
+
+      /* Book Review Audio Section */
+      #book-review {
+        background: linear-gradient(135deg, #e8f5f3 0%, #f0f8f5 50%, #e8f5f3 100%);
+        border: 2px solid #20c997;
+        position: relative;
+        overflow: hidden;
+      }
+      
+      #book-review::before {
+        background: linear-gradient(90deg, #28a745, #20c997, #17a2b8);
+      }
+      
+      .audio-player-container {
+        background: #fff;
+        border-radius: 15px;
+        padding: 2rem;
+        box-shadow: 0 8px 25px rgba(40, 167, 69, 0.15);
+        margin: 2rem 0;
+      }
+      
+      .audio-visual {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1rem;
+      }
+      
+      .audio-icon {
+        font-size: 2.5rem;
+        animation: pulse 2s infinite;
+      }
+      
+      .audio-info {
+        flex: 1;
+      }
+      
+      .audio-title {
+        font-size: 1.3rem;
+        font-weight: 600;
+        color: #2c5530;
+        margin-bottom: 0.25rem;
+      }
+      
+      .audio-duration {
+        font-size: 1rem;
+        color: #666;
+      }
+      
+      #book-review-audio {
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      }
+      
+      .reviewer-quotes {
+        display: grid;
+        gap: 1.5rem;
+        margin-top: 2rem;
+      }
+      
+      .quote-item {
+        background: linear-gradient(135deg, #f8fffe, #e8f5f3);
+        border-left: 4px solid #28a745;
+        padding: 1.5rem;
+        border-radius: 0 10px 10px 0;
+        position: relative;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      
+      .quote-item:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(40, 167, 69, 0.15);
+      }
+      
+      .quote-text {
+        font-size: 1.1rem;
+        font-style: italic;
+        color: #2c5530;
+        margin-bottom: 0.5rem;
+        line-height: 1.6;
+      }
+      
+      .quote-source {
+        font-size: 0.9rem;
+        color: #666;
+        font-weight: 600;
+      }
+      
+      @media (max-width: 768px) {
+        .audio-player-container {
+          padding: 1.5rem;
+        }
+        
+        .audio-visual {
+          gap: 0.75rem;
+        }
+        
+        .audio-icon {
+          font-size: 2rem;
+        }
+        
+        .audio-title {
+          font-size: 1.1rem;
+        }
+        
+        .quote-item {
+          padding: 1.25rem;
+        }
+        
+        .quote-text {
+          font-size: 1rem;
+        }
+      }
     </style>
     <!-- Embed EB Garamond from Google Fonts -->
     <link
@@ -651,6 +764,47 @@
       </div>
     </section>
 
+    <section id="book-review">
+      <h2>🎧 Listen to the Book Review</h2>
+      
+      <div class="audio-player-container">
+        <div class="audio-visual">
+          <div class="audio-icon">🎙️</div>
+          <div class="audio-info">
+            <div class="audio-title">Podcast Book Review</div>
+            <div class="audio-duration">6:01 minutes</div>
+          </div>
+        </div>
+        
+        <audio id="book-review-audio" controls preload="metadata" style="width: 100%; margin: 1.5rem 0;">
+          <source src="./assets/book-review.mp3" type="audio/mpeg">
+          Your browser does not support the audio element.
+        </audio>
+        
+        <div class="reviewer-quotes">
+          <div class="quote-item">
+            <div class="quote-text">"His journey is really something else. The transformation is just huge."</div>
+          </div>
+          
+          <div class="quote-item">
+            <div class="quote-text">"Really makes you think... if Greg could reverse all that, what might be possible for you?"</div>
+          </div>
+          
+          <div class="quote-item">
+            <div class="quote-text">"Greg's story is such a powerful real world example of that kind of fundamental change being possible."</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="section-cta">
+        <a
+          class="btn"
+          href="https://www.amazon.com/Didnt-Believe-Until-Happened-Me/dp/B0D57YGMNR/ref=sr_1_1"
+          target="_blank"
+        >📖 Get the Full Story</a>
+      </div>
+    </section>
+
     <section id="author">
       <h2>About the Author</h2>
       <p>
@@ -679,7 +833,7 @@
             // height will be set automatically via CSS/aspect-ratio
             videoId: 'M8sGE5n-i1Q',
             playerVars: {
-              autoplay: 1,
+              autoplay: 0,
               start: 0,
               end: 285,       // stop at 4:45
               controls: 1,
