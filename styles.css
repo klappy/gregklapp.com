@@ -347,7 +347,7 @@ header img:hover {
 section {
   padding: 5rem 2rem;
   max-width: 900px;
-  margin: 0 auto 3rem;
+  margin: 0 auto 4rem;
   background: rgba(255, 255, 255, 0.8);
   border-radius: 20px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
@@ -365,6 +365,10 @@ section::before {
   height: 4px;
   background: linear-gradient(90deg, #28a745, #20c997, #17a2b8);
   border-radius: 20px 20px 0 0;
+}
+
+section:last-of-type {
+  margin-bottom: 0;
 }
 
 h1 {
@@ -573,33 +577,35 @@ footer p {
   }
 }
 
+/* Video Styles */
 iframe#yt-player {
   width: 100%;
   max-width: 100%;
   height: auto;
-  /* 16:9 ratio = 16 / 9 = 1.777 */
   aspect-ratio: 16 / 9;
   border: 0;
 }
 
-/* Story Section Styles */
-#story {
-  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
-  border-radius: 12px;
-  border: 2px solid #dee2e6;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+/* Consistent Section Styling */
+#about, #story, #author, #contact {
+  background: linear-gradient(135deg, #f8fffe 0%, #f0f8f5 50%, #e8f5f3 100%);
+  border: 2px solid #20c997;
+  box-shadow: 0 10px 25px rgba(32, 201, 151, 0.15);
   position: relative;
   overflow: hidden;
 }
 
-#story::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 4px;
-  background: linear-gradient(90deg, #28a745, #20c997, #17a2b8);
+#about::before, #story::before, #author::before, #contact::before {
+  background: linear-gradient(90deg, #20c997, #17a2b8, #28a745);
+}
+
+/* Consistent heading and text colors */
+#about h2, #story h2, #author h2, #contact h2 {
+  color: #2c5530;
+}
+
+#about p, #story p, #author p, #contact p {
+  color: #495057;
 }
 
 .transformation-stats {
@@ -659,7 +665,6 @@ iframe#yt-player {
   left: 1rem;
   line-height: 1;
 }
-
 
 /* Book Review Audio Section */
 #book-review {

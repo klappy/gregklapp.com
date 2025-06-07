@@ -49,9 +49,9 @@
       <div class="nav-links">
         <a href="#home">Home</a>
         <a href="#about">About</a>
-        <a href="#author">Author</a>
         <a href="#documentary">Documentary</a>
         <a href="#story">My Story</a>
+        <a href="#author">Author</a>
         <a href="#contact">Contact</a>
       </div>
       <a
@@ -227,8 +227,8 @@
   </body>
 </html>
 <script>
-  // Smooth scrolling for navigation links
-  document.querySelectorAll("nav a").forEach((anchor) => {
+  // Smooth scrolling for internal navigation links only
+  document.querySelectorAll("nav a[href^='#']").forEach((anchor) => {
     anchor.addEventListener("click", function (e) {
       e.preventDefault();
       const targetId = this.getAttribute("href");
