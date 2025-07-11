@@ -1,0 +1,51 @@
+<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#ff6b6b"/>
+      <stop offset="50%" style="stop-color:#4ecdc4"/>
+      <stop offset="100%" style="stop-color:#ffe66d"/>
+    </radialGradient>
+    <pattern id="stripes" patternUnits="userSpaceOnUse" width="60" height="630">
+      <rect width="30" height="630" fill="rgba(255,255,255,0.1)"/>
+    </pattern>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#stripes)"/>
+  
+  <!-- VCR Border -->
+  <rect x="10" y="10" width="1180" height="610" fill="none" stroke="#333" stroke-width="20"/>
+  
+  <!-- Main Title -->
+  <text x="600" y="180" text-anchor="middle" font-family="Impact, Arial Black, sans-serif" font-size="80" font-weight="bold" fill="#ffe66d" stroke="#ff1744" stroke-width="4">REN &amp; STIMPY</text>
+  
+  <!-- Birthday Text -->
+  <text x="600" y="280" text-anchor="middle" font-family="Impact, Arial Black, sans-serif" font-size="60" font-weight="bold" fill="#ff1744" stroke="#000" stroke-width="3">BIRTHDAY MADNESS!</text>
+  
+  <!-- Age -->
+  <text x="600" y="420" text-anchor="middle" font-family="Impact, Arial Black, sans-serif" font-size="120" font-weight="bold" fill="#4ecdc4" stroke="#000" stroke-width="5">73!</text>
+  
+  <!-- VCR Elements -->
+  <text x="600" y="520" text-anchor="middle" font-family="monospace" font-size="24" font-weight="bold" fill="#000">● REC ● PLAY ● REWIND ●</text>
+  
+  <!-- Chaotic Elements -->
+  <text x="150" y="150" font-size="40">💀</text>
+  <text x="350" y="120" font-size="40">⚡</text>
+  <text x="850" y="140" font-size="40">🤪</text>
+  <text x="1050" y="160" font-size="40">📼</text>
+  <text x="200" y="450" font-size="40">🎂</text>
+  <text x="950" y="480" font-size="40">💥</text>
+  <text x="100" y="300" font-size="40">⚡</text>
+  <text x="1100" y="320" font-size="40">💀</text>
+  <text x="300" y="500" font-size="40">🤪</text>
+  <text x="800" y="250" font-size="40">📼</text>
+  <text x="450" y="100" font-size="40">💥</text>
+  <text x="750" y="550" font-size="40">🎂</text>
+  
+  <!-- Additional chaos -->
+  <circle cx="120" cy="200" r="5" fill="#ff1744"/>
+  <circle cx="1080" cy="400" r="5" fill="#ffe66d"/>
+  <circle cx="400" cy="580" r="5" fill="#4ecdc4"/>
+  <circle cx="800" cy="80" r="5" fill="#ff1744"/>
+</svg>

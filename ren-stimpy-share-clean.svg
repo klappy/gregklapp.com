@@ -1,0 +1,51 @@
+<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#ff6b6b"/>
+      <stop offset="50%" style="stop-color:#4ecdc4"/>
+      <stop offset="100%" style="stop-color:#ffe66d"/>
+    </radialGradient>
+    <pattern id="stripes" patternUnits="userSpaceOnUse" width="60" height="630">
+      <rect width="30" height="630" fill="rgba(255,255,255,0.1)"/>
+    </pattern>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#stripes)"/>
+  
+  <!-- VCR Border -->
+  <rect x="10" y="10" width="1180" height="610" fill="none" stroke="#333" stroke-width="20"/>
+  
+  <!-- Main Title -->
+  <text x="600" y="180" text-anchor="middle" font-family="Impact, Arial Black, sans-serif" font-size="80" font-weight="bold" fill="#ffe66d" stroke="#ff1744" stroke-width="4">REN &amp; STIMPY</text>
+  
+  <!-- Birthday Text -->
+  <text x="600" y="280" text-anchor="middle" font-family="Impact, Arial Black, sans-serif" font-size="60" font-weight="bold" fill="#ff1744" stroke="#000" stroke-width="3">BIRTHDAY MADNESS!</text>
+  
+  <!-- Age -->
+  <text x="600" y="420" text-anchor="middle" font-family="Impact, Arial Black, sans-serif" font-size="120" font-weight="bold" fill="#4ecdc4" stroke="#000" stroke-width="5">73!</text>
+  
+  <!-- VCR Elements -->
+  <text x="600" y="520" text-anchor="middle" font-family="monospace" font-size="24" font-weight="bold" fill="#000">REC • PLAY • REWIND</text>
+  
+  <!-- Chaotic Geometric Elements -->
+  <circle cx="150" cy="150" r="15" fill="#ff1744"/>
+  <rect x="335" y="105" width="30" height="30" fill="#ffe66d" transform="rotate(45 350 120)"/>
+  <circle cx="850" cy="140" r="20" fill="#4ecdc4"/>
+  <polygon points="1035,145 1050,175 1065,145" fill="#ff1744"/>
+  <circle cx="200" cy="450" r="18" fill="#ffe66d"/>
+  <rect x="935" y="465" width="30" height="30" fill="#4ecdc4" transform="rotate(45 950 480)"/>
+  <circle cx="100" cy="300" r="12" fill="#ff1744"/>
+  <polygon points="1085,305 1100,335 1115,305" fill="#ffe66d"/>
+  <circle cx="300" cy="500" r="16" fill="#4ecdc4"/>
+  <rect x="785" y="235" width="30" height="30" fill="#ff1744" transform="rotate(45 800 250)"/>
+  <circle cx="450" cy="100" r="14" fill="#4ecdc4"/>
+  <polygon points="735,535 750,565 765,535" fill="#ff1744"/>
+  
+  <!-- Additional chaos -->
+  <circle cx="120" cy="200" r="8" fill="#ff1744"/>
+  <circle cx="1080" cy="400" r="8" fill="#ffe66d"/>
+  <circle cx="400" cy="580" r="8" fill="#4ecdc4"/>
+  <circle cx="800" cy="80" r="8" fill="#ff1744"/>
+</svg> 
