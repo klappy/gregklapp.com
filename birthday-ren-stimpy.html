@@ -72,7 +72,7 @@
           transparent 2px
         );
         pointer-events: none;
-        z-index: 3;
+        z-index: 1;
         opacity: 0.3;
       }
 
@@ -179,7 +179,7 @@
         background: #ffe66d;
         border: 10px solid #ff1744;
         border-radius: 40px;
-        padding: 20px;
+        padding: 30px;
         margin: 40px 0;
         position: relative;
         box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.3), 0 20px 40px rgba(0, 0, 0, 0.5);
@@ -187,6 +187,8 @@
         cursor: pointer;
         transition: all 0.5s;
         display: block;
+        min-height: 200px;
+        z-index: 2;
       }
 
       .story-panel:hover {
@@ -196,6 +198,8 @@
       .story-content {
         transition: transform 0.6s;
         transform-style: preserve-3d;
+        position: relative;
+        height: 100%;
       }
 
       .story-panel.flipped .story-content {
@@ -208,10 +212,12 @@
         position: absolute;
         width: 100%;
         left: 0;
-        padding: 10px;
+        top: 0;
+        padding: 20px;
         box-sizing: border-box;
         word-wrap: break-word;
         hyphens: auto;
+        overflow-wrap: break-word;
       }
 
       .story-back {
@@ -222,14 +228,255 @@
 
       .story-title {
         font-family: "Creepster", cursive;
-        font-size: 2.5rem;
+        font-size: 2rem;
         color: #d50000;
-        margin-bottom: 20px;
+        margin-bottom: 15px;
+        line-height: 1.2;
       }
 
       .story-text {
-        font-size: 1.3rem;
-        line-height: 1.6;
+        font-size: 1.1rem;
+        line-height: 1.4;
+        margin-bottom: 10px;
+      }
+
+      /* Video Panel Special Styling */
+      .video-panel {
+        z-index: 10;
+        position: relative;
+      }
+
+      .video-panel iframe {
+        z-index: 11;
+        position: relative;
+      }
+
+      /* Creative Episode Elements */
+
+      /* LOG! LOG! LOG! */
+      .log-section {
+        background: #8b4513;
+        background-image: repeating-linear-gradient(
+            90deg,
+            #654321 0,
+            #654321 20px,
+            #8b4513 20px,
+            #8b4513 40px
+          ),
+          radial-gradient(ellipse at center, #8b4513, #654321);
+        padding: 40px;
+        margin: 30px 0;
+        border-radius: 100px;
+        text-align: center;
+        position: relative;
+        transform: rotate(2deg);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+      }
+
+      .log-text {
+        font-size: 3rem;
+        color: #ffe66d;
+        text-shadow: 3px 3px 0 #000;
+        animation: logShake 0.2s infinite;
+        font-family: "Creepster", cursive;
+      }
+
+      @keyframes logShake {
+        0%,
+        100% {
+          transform: translateX(0);
+        }
+        25% {
+          transform: translateX(-5px);
+        }
+        75% {
+          transform: translateX(5px);
+        }
+      }
+
+      /* VCR Display */
+      .vcr-display {
+        background: #000;
+        border: 8px solid #333;
+        border-radius: 15px;
+        padding: 20px;
+        margin: 30px 0;
+        color: #0f0;
+        font-family: monospace;
+        text-align: center;
+        position: relative;
+        box-shadow: 0 0 30px #0f0;
+        animation: vcrFlicker 2s infinite;
+      }
+
+      @keyframes vcrFlicker {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.8;
+        }
+      }
+
+      .vcr-display::before {
+        content: "VCR";
+        position: absolute;
+        top: -15px;
+        left: 20px;
+        background: #000;
+        color: #0f0;
+        padding: 5px 10px;
+        font-size: 0.8rem;
+      }
+
+      @keyframes blink {
+        0%,
+        50% {
+          opacity: 1;
+        }
+        51%,
+        100% {
+          opacity: 0;
+        }
+      }
+
+      /* Electric Fence Warning */
+      .electric-fence {
+        background: #ffff00;
+        border: 10px solid #ff0000;
+        border-style: dashed;
+        padding: 30px;
+        margin: 30px 0;
+        text-align: center;
+        position: relative;
+        transform: rotate(-1deg);
+        animation: electricPulse 1s infinite;
+      }
+
+      @keyframes electricPulse {
+        0%,
+        100% {
+          box-shadow: 0 0 20px #ff0000;
+        }
+        50% {
+          box-shadow: 0 0 40px #ff0000, inset 0 0 20px #ff0000;
+        }
+      }
+
+      .electric-fence::before {
+        content: "⚡ DANGER ⚡";
+        position: absolute;
+        top: -20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #ff0000;
+        color: #ffff00;
+        padding: 5px 15px;
+        font-weight: bold;
+        font-size: 1.2rem;
+      }
+
+      /* Powdered Toast Superhero Logo */
+      .toast-logo {
+        background: radial-gradient(circle, #daa520, #b8860b);
+        border: 8px solid #8b4513;
+        border-radius: 50%;
+        width: 200px;
+        height: 200px;
+        margin: 30px auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        animation: toastSpin 3s linear infinite;
+      }
+
+      @keyframes toastSpin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      .toast-logo::before {
+        content: "PTM";
+        font-size: 3rem;
+        font-weight: bold;
+        color: #8b4513;
+        text-shadow: 2px 2px 0 #fff;
+        font-family: "Creepster", cursive;
+      }
+
+      /* Dental Nightmare */
+      .dental-nightmare {
+        background: #ff69b4;
+        border: 10px solid #ff1493;
+        border-radius: 30px;
+        padding: 30px;
+        margin: 30px 0;
+        text-align: center;
+        position: relative;
+        animation: toothache 0.5s infinite alternate;
+      }
+
+      @keyframes toothache {
+        0% {
+          transform: scale(1) rotate(-1deg);
+        }
+        100% {
+          transform: scale(1.05) rotate(1deg);
+        }
+      }
+
+      .dental-nightmare::before {
+        content: "🦷 😱 🦷";
+        position: absolute;
+        top: -25px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #ff1493;
+        padding: 10px 20px;
+        border-radius: 20px;
+        font-size: 1.5rem;
+      }
+
+      /* Missing Poster */
+      .missing-poster {
+        background: #fff;
+        border: 5px solid #000;
+        padding: 20px;
+        margin: 30px 0;
+        text-align: center;
+        position: relative;
+        transform: rotate(-2deg);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        font-family: "Courier New", monospace;
+        color: #000;
+      }
+
+      .missing-poster::before {
+        content: "MISSING";
+        position: absolute;
+        top: -15px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #ff0000;
+        color: #fff;
+        padding: 5px 15px;
+        font-weight: bold;
+        font-size: 1.2rem;
+      }
+
+      .missing-poster::after {
+        content: "📌";
+        position: absolute;
+        top: -10px;
+        right: 20px;
+        font-size: 2rem;
+        transform: rotate(45deg);
       }
 
       /* Health Journey - Epic Version */
@@ -426,15 +673,15 @@
           <div class="story-front">
             <h2 class="story-title">THE BROKEN VCR CATASTROPHE!</h2>
             <p class="story-text">
-              Remember that fateful day in the 90s? It was time for our daily Ren & Stimpy fix! We
-              popped in the tape, hit play, and... NOTHING! The VCR betrayed us! It sputtered, it
-              sparked, it DIED! "OH NOOOOO!" I cried, just like Stimpy!
+              Remember that day in the 90s? Time for our daily Ren & Stimpy fix! We popped in the
+              tape, hit play, and... NOTHING! The VCR betrayed us! "OH NOOOOO!" I cried, just like
+              Stimpy!
             </p>
           </div>
           <div class="story-back">
             <p class="story-text">
               But you, Dad? You didn't panic. You said, "Don't worry, son. I'll fix this!" And off
-              you went into the wild world of electronics stores...
+              you went to find the perfect VCR replacement!
             </p>
           </div>
         </div>
@@ -446,15 +693,15 @@
             <h2 class="story-title">THE GREAT VCR QUEST!</h2>
             <p class="story-text">
               You ventured forth like Ren on a space mission! Battling traffic, dodging pushy
-              salespeople, researching the HIGHEST RATED, MOST RELIABLE VCR on the market! Hours
-              passed... I thought we'd never see "Happy Happy Joy Joy" again!
+              salespeople, researching the BEST VCR on the market! Hours passed... I thought we'd
+              never see "Happy Happy Joy Joy" again!
             </p>
           </div>
           <div class="story-back">
             <p class="story-text">
               But you returned TRIUMPHANT! With the ULTIMATE VCR - built like a tank, with turbo
-              rewind! "No more missed episodes!" you declared. And we watched R&S that night,
-              laughing till our sides hurt!
+              rewind! "No more missed episodes!" you declared. We watched R&S that night, laughing
+              till our sides hurt!
             </p>
           </div>
         </div>
@@ -466,8 +713,8 @@
             <h2 class="story-title">OUR FAVORITE MEMORIES!</h2>
             <p class="story-text">
               Those afternoons watching Ren's freakouts and Stimpy's joy... they were the best!
-              Daniel and I did the voices while you laughed along - "YOU EEEDIOT!" We'd all roll on
-              the floor!
+              Daniel and I did the voices while you laughed - "YOU EEEDIOT!" We'd all roll on the
+              floor!
             </p>
           </div>
           <div class="story-back">
@@ -477,6 +724,213 @@
             </p>
           </div>
         </div>
+      </div>
+
+      <!-- New Panel: Don't Wiz on the Electric Fence -->
+      <div class="story-panel" onclick="flipPanel(this)">
+        <div class="story-content">
+          <div class="story-front">
+            <h2 class="story-title">DON'T WIZ ON THE ELECTRIC FENCE!</h2>
+            <p class="story-text">
+              "Don't wiz on the electric fence!" - Classic Ren wisdom from the board game episode.
+              Sometimes the best advice is the most obvious!
+            </p>
+          </div>
+          <div class="story-back">
+            <p class="story-text">
+              "It'll hurt real bad!" Just like Ren's warnings, your life advice always kept us safe,
+              Dad!
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- New Panel: Powdered Toast Man -->
+      <div class="story-panel" onclick="flipPanel(this)">
+        <div class="story-content">
+          <div class="story-front">
+            <h2 class="story-title">POWDERED TOAST MAN!</h2>
+            <p class="story-text">
+              "Quick, man! Cling tenaciously to my buttocks!" The superhero who flies backwards and
+              saves the day with toast powers!
+            </p>
+          </div>
+          <div class="story-back">
+            <p class="story-text">
+              "Leave everything to me!" Just like PTM, you always swooped in to save the day, Dad!
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- New Panel: Log Quote -->
+      <div class="story-panel" onclick="flipPanel(this)">
+        <div class="story-content">
+          <div class="story-front">
+            <h2 class="story-title">IT'S LOG! IT'S LOG!</h2>
+            <p class="story-text">
+              "It's big, it's heavy, it's wood! It's Log! It's Log! It's better than bad, it's
+              good!" The most ridiculous toy commercial ever!
+            </p>
+          </div>
+          <div class="story-back">
+            <p class="story-text">
+              "Everyone wants a Log! You're gonna love it, Log!" Still gets stuck in my head after
+              all these years!
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- LOG Visual Element -->
+      <div class="log-section">
+        <div class="log-text">IT'S BETTER THAN BAD, IT'S GOOD!</div>
+        <p
+          style="
+            color: #ffe66d;
+            font-size: 1.2rem;
+            margin-top: 15px;
+            font-family: 'Bungee', cursive;
+          "
+        >
+          EVERYONE WANTS A LOG! YOU'RE GONNA LOVE IT, LOG!
+        </p>
+      </div>
+
+      <!-- New Panel: Tooth Fairy -->
+      <div class="story-panel" onclick="flipPanel(this)">
+        <div class="story-content">
+          <div class="story-front">
+            <h2 class="story-title">THE TOOTH FAIRY'S VISIT!</h2>
+            <p class="story-text">
+              "I am the Tooth Fairy!" From Ren's Toothache - the creepy fairy with teeth and wands
+              who comes to "help" with dental problems!
+            </p>
+          </div>
+          <div class="story-back">
+            <p class="story-text">
+              "Let me help you with that tooth!" One of the most disturbing R&S episodes ever!
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dental Nightmare Visual -->
+      <div class="dental-nightmare">
+        <h3
+          style="
+            font-family: 'Creepster', cursive;
+            font-size: 2rem;
+            color: #8b008b;
+            margin-bottom: 10px;
+          "
+        >
+          DENTAL NIGHTMARE!
+        </h3>
+        <p style="font-size: 1.3rem; color: #4b0082; font-weight: bold">"I am the Tooth Fairy!"</p>
+        <p style="font-size: 1rem; color: #8b008b; margin-top: 10px">*creepy fairy laughter*</p>
+      </div>
+
+      <!-- New Panel: Have You Smelled Me Poster -->
+      <div class="story-panel" onclick="flipPanel(this)">
+        <div class="story-content">
+          <div class="story-front">
+            <h2 class="story-title">HAVE YOU SMELLED ME?</h2>
+            <p class="story-text">
+              From the episode where Stimpy's fart runs away - the missing poster that says it all!
+              "If found, please return to Stimpy J. Cat."
+            </p>
+          </div>
+          <div class="story-back">
+            <p class="story-text">
+              "I miss my fart!" Only Ren & Stimpy could make a whole episode about a runaway fart!
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Missing Poster Visual -->
+      <div class="missing-poster">
+        <h3 style="font-size: 1.5rem; margin-bottom: 15px; text-decoration: underline">
+          HAVE YOU SMELLED ME?
+        </h3>
+        <p style="font-size: 1.1rem; margin-bottom: 10px">LAST SEEN: Stimpy's butt</p>
+        <p style="font-size: 1.1rem; margin-bottom: 10px">DESCRIPTION: Stinky, green, gaseous</p>
+        <p style="font-size: 1.1rem; margin-bottom: 15px">ANSWERS TO: *fart noise*</p>
+        <p style="font-size: 0.9rem; font-style: italic">
+          If found, please return to Stimpy J. Cat
+        </p>
+        <p style="font-size: 0.8rem; margin-top: 10px">REWARD: One belly rub</p>
+      </div>
+
+      <!-- VCR Story Visual -->
+      <div class="vcr-display">
+        <div style="font-size: 1.5rem; margin-bottom: 10px">REN & STIMPY VCR</div>
+        <div style="font-size: 1rem; margin-bottom: 5px">STATUS: RESCUED BY DAD</div>
+        <div style="font-size: 1rem; margin-bottom: 5px">EPISODES SAVED: ALL OF THEM</div>
+        <div style="font-size: 1rem; margin-bottom: 10px">TURBO REWIND: ✓ ACTIVATED</div>
+        <div style="font-size: 0.8rem; animation: blink 1s infinite">● REC ● PLAY ● REWIND</div>
+      </div>
+
+      <!-- New Panel: Don't Wiz on the Electric Fence -->
+      <div class="story-panel" onclick="flipPanel(this)">
+        <div class="story-content">
+          <div class="story-front">
+            <h2 class="story-title">DON'T WIZ ON THE ELECTRIC FENCE!</h2>
+            <p class="story-text">
+              "Don't wiz on the electric fence!" - Classic Ren wisdom from the board game episode.
+              Sometimes the best advice is the most obvious!
+            </p>
+          </div>
+          <div class="story-back">
+            <p class="story-text">
+              "It'll hurt real bad!" Just like Ren's warnings, your life advice always kept us safe,
+              Dad!
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Electric Fence Warning Visual -->
+      <div class="electric-fence">
+        <h3
+          style="
+            font-family: 'Creepster', cursive;
+            font-size: 2rem;
+            color: #ff0000;
+            margin-bottom: 10px;
+          "
+        >
+          DON'T WIZ ON THE ELECTRIC FENCE!
+        </h3>
+        <p style="font-size: 1.2rem; color: #000; font-weight: bold">IT'LL HURT REAL BAD!</p>
+        <div style="font-size: 2rem; margin-top: 10px">⚡💀⚡</div>
+      </div>
+
+      <!-- New Panel: Powdered Toast Man -->
+      <div class="story-panel" onclick="flipPanel(this)">
+        <div class="story-content">
+          <div class="story-front">
+            <h2 class="story-title">POWDERED TOAST MAN!</h2>
+            <p class="story-text">
+              "Quick, man! Cling tenaciously to my buttocks!" The superhero who flies backwards and
+              saves the day with toast powers!
+            </p>
+          </div>
+          <div class="story-back">
+            <p class="story-text">
+              "Leave everything to me!" Just like PTM, you always swooped in to save the day, Dad!
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Powdered Toast Man Logo -->
+      <div class="toast-logo"></div>
+      <div style="text-align: center; margin-top: -10px">
+        <p style="font-family: 'Creepster', cursive; font-size: 1.5rem; color: #8b4513">
+          "CLING TENACIOUSLY TO MY BUTTOCKS!"
+        </p>
       </div>
 
       <!-- Health Journey Tribute -->
@@ -514,6 +968,25 @@
           Love, Your 43-Year-Old Son (Who Still Can't Do Voices as Good as Daniel!)
         </p>
       </div>
+
+      <!-- Embedded Happy Birthday Clip -->
+      <div
+        class="story-panel video-panel"
+        style="text-align: center; cursor: default"
+        onclick="event.stopPropagation()"
+      >
+        <h2 class="story-title">WATCH THE HAPPY BIRTHDAY CLIP!</h2>
+        <iframe
+          width="560"
+          height="315"
+          src="https://www.youtube.com/embed/37bKxaoZbS8"
+          title="Ren & Stimpy Happy Birthday Clip"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen
+          style="max-width: 100%; z-index: 15; position: relative"
+        ></iframe>
+      </div>
     </div>
 
     <script src="https://www.youtube.com/iframe_api"></script>
@@ -529,9 +1002,7 @@
       }
 
       function playEpisode() {
-        alert(
-          "*VCR whirring* HAPPY HAPPY JOY JOY! Thanks for the memories, Dad! Let's binge-watch soon!"
-        );
+        window.open("https://www.youtube.com/watch?v=uynMyztqIiA", "_blank");
         document.body.style.animation = "spaz 0.5s 3";
         setTimeout(() => {
           document.body.style.animation = "";
