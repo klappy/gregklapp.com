@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HAPPY HAPPY JOY JOY - DAD'S 73RD!</title>
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Creepster&family=Bungee&family=Modak&display=swap");
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background: #ff6b6b;
+        background-image: repeating-linear-gradient(
+            45deg,
+            transparent,
+            transparent 35px,
+            rgba(255, 255, 255, 0.1) 35px,
+            rgba(255, 255, 255, 0.1) 70px
+          ),
+          radial-gradient(circle at 20% 50%, #ff6b6b 0%, #4ecdc4 50%, #ffe66d 100%);
+        overflow-x: hidden;
+        font-family: "Bungee", cursive;
+        position: relative;
+        min-height: 100vh;
+      }
+
+      /* Ren and Stimpy style veins/grossness */
+      body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M10,50 Q20,20 40,50 T70,50 T100,50" stroke="%23FF1744" stroke-width="0.5" fill="none" opacity="0.3"/><path d="M0,30 Q30,10 50,30 T80,30 T100,30" stroke="%23D50000" stroke-width="0.3" fill="none" opacity="0.2"/></svg>')
+          repeat;
+        pointer-events: none;
+        z-index: 1;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+        position: relative;
+        z-index: 2;
+      }
+
+      /* HAPPY HAPPY JOY JOY Title */
+      .main-title {
+        text-align: center;
+        margin: 50px 0;
+        position: relative;
+        animation: spaz 0.5s infinite alternate;
+      }
+
+      @keyframes spaz {
+        0% {
+          transform: rotate(-2deg) scale(1);
+        }
+        100% {
+          transform: rotate(2deg) scale(1.05);
+        }
+      }
+
+      .happy-joy {
+        font-family: "Creepster", cursive;
+        font-size: 6rem;
+        color: #ffe66d;
+        text-shadow: 5px 5px 0 #ff1744, 10px 10px 0 #d50000, 15px 15px 20px rgba(0, 0, 0, 0.5);
+        letter-spacing: 10px;
+        animation: colorSpaz 0.5s infinite;
+      }
+
+      @keyframes colorSpaz {
+        0% {
+          filter: hue-rotate(0deg);
+        }
+        100% {
+          filter: hue-rotate(30deg);
+        }
+      }
+
+      .age-counter {
+        font-family: "Modak", cursive;
+        font-size: 15rem;
+        color: #4ecdc4;
+        text-align: center;
+        text-shadow: 0 0 20px #ff1744, 0 0 40px #ff1744, 0 0 60px #ff1744;
+        animation: throb 1s infinite alternate;
+        position: relative;
+      }
+
+      @keyframes throb {
+        0% {
+          transform: scale(1);
+          filter: brightness(1);
+        }
+        100% {
+          transform: scale(1.1);
+          filter: brightness(1.5);
+        }
+      }
+
+      /* Gross close-up style sections */
+      .gross-closeup {
+        background: #ffe66d;
+        border: 10px solid #ff1744;
+        border-radius: 50px;
+        padding: 40px;
+        margin: 40px 0;
+        position: relative;
+        box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.3), 0 20px 40px rgba(0, 0, 0, 0.5);
+        transform: rotate(-1deg);
+        overflow: hidden;
+      }
+
+      .gross-closeup::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: repeating-radial-gradient(
+          circle at center,
+          transparent 0,
+          transparent 20px,
+          rgba(255, 0, 0, 0.1) 20px,
+          rgba(255, 0, 0, 0.1) 40px
+        );
+        animation: spin 20s linear infinite;
+      }
+
+      @keyframes spin {
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      /* LOG! LOG! LOG! */
+      .log-section {
+        background: #8b4513;
+        background-image: repeating-linear-gradient(
+            90deg,
+            #654321 0,
+            #654321 20px,
+            #8b4513 20px,
+            #8b4513 40px
+          ),
+          radial-gradient(ellipse at center, #8b4513, #654321);
+        padding: 60px;
+        margin: 40px 0;
+        border-radius: 100px;
+        text-align: center;
+        position: relative;
+        transform: rotate(2deg);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+      }
+
+      .log-text {
+        font-size: 4rem;
+        color: #ffe66d;
+        text-shadow: 3px 3px 0 #000;
+        animation: logShake 0.2s infinite;
+      }
+
+      @keyframes logShake {
+        0%,
+        100% {
+          transform: translateX(0);
+        }
+        25% {
+          transform: translateX(-5px);
+        }
+        75% {
+          transform: translateX(5px);
+        }
+      }
+
+      /* Stimpy's invention style button */
+      .big-red-button {
+        display: block;
+        width: 300px;
+        height: 300px;
+        margin: 50px auto;
+        background: radial-gradient(circle at 30% 30%, #ff6b6b, #d50000);
+        border: 15px solid #8b0000;
+        border-radius: 50%;
+        position: relative;
+        cursor: pointer;
+        box-shadow: inset -10px -10px 20px rgba(0, 0, 0, 0.5), 0 20px 40px rgba(0, 0, 0, 0.5);
+        transition: all 0.1s;
+        animation: buttonPulse 2s infinite;
+      }
+
+      @keyframes buttonPulse {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.05);
+        }
+      }
+
+      .big-red-button:active {
+        transform: scale(0.95);
+        box-shadow: inset -5px -5px 10px rgba(0, 0, 0, 0.5), 0 5px 10px rgba(0, 0, 0, 0.5);
+      }
+
+      .button-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 2rem;
+        color: white;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        text-align: center;
+        pointer-events: none;
+      }
+
+      /* Ren's psychotic face moments */
+      .psycho-section {
+        position: relative;
+        padding: 40px;
+        margin: 40px 0;
+        background: #4ecdc4;
+        border: 5px dashed #ff1744;
+        overflow: hidden;
+      }
+
+      .vein {
+        position: absolute;
+        background: #d50000;
+        height: 3px;
+        animation: veinThrob 0.5s infinite;
+      }
+
+      @keyframes veinThrob {
+        0%,
+        100% {
+          transform: scaleY(1);
+        }
+        50% {
+          transform: scaleY(2);
+        }
+      }
+
+      .vein1 {
+        top: 20%;
+        left: 0;
+        right: 0;
+        transform: rotate(-5deg);
+      }
+      .vein2 {
+        top: 50%;
+        left: 0;
+        right: 0;
+        transform: rotate(3deg);
+      }
+      .vein3 {
+        top: 80%;
+        left: 0;
+        right: 0;
+        transform: rotate(-2deg);
+      }
+
+      /* Memory cards - Ren style */
+      .memory-card {
+        background: #ffe66d;
+        border: 8px solid #ff1744;
+        padding: 30px;
+        margin: 20px 0;
+        position: relative;
+        transform: rotate(-2deg);
+        cursor: pointer;
+        transition: all 0.3s;
+        box-shadow: 10px 10px 0 #d50000;
+      }
+
+      .memory-card:hover {
+        transform: rotate(2deg) scale(1.05);
+        box-shadow: 15px 15px 0 #d50000;
+      }
+
+      .memory-card h3 {
+        font-family: "Creepster", cursive;
+        font-size: 2rem;
+        color: #d50000;
+        margin-bottom: 10px;
+      }
+
+      .memory-text {
+        font-family: "Bungee", cursive;
+        color: #333;
+        font-size: 1rem;
+        line-height: 1.5;
+      }
+
+      .crazy-reveal {
+        display: none;
+        margin-top: 20px;
+        padding: 20px;
+        background: #ff1744;
+        color: white;
+        font-size: 1.2rem;
+        border-radius: 20px;
+        animation: crazyShake 0.5s;
+      }
+
+      @keyframes crazyShake {
+        0%,
+        100% {
+          transform: translateX(0);
+        }
+        10% {
+          transform: translateX(-10px) rotate(-5deg);
+        }
+        20% {
+          transform: translateX(10px) rotate(5deg);
+        }
+        30% {
+          transform: translateX(-10px) rotate(-5deg);
+        }
+        40% {
+          transform: translateX(10px) rotate(5deg);
+        }
+        50% {
+          transform: translateX(-5px) rotate(-2deg);
+        }
+        60% {
+          transform: translateX(5px) rotate(2deg);
+        }
+        70% {
+          transform: translateX(-5px) rotate(-2deg);
+        }
+        80% {
+          transform: translateX(5px) rotate(2deg);
+        }
+        90% {
+          transform: translateX(-2px) rotate(-1deg);
+        }
+      }
+
+      /* Floating elements */
+      .floater {
+        position: fixed;
+        font-size: 3rem;
+        animation: float 10s infinite linear;
+        z-index: 0;
+      }
+
+      @keyframes float {
+        0% {
+          transform: translateY(100vh) rotate(0deg);
+        }
+        100% {
+          transform: translateY(-100vh) rotate(360deg);
+        }
+      }
+
+      .floater1 {
+        left: 10%;
+        animation-delay: 0s;
+      }
+      .floater2 {
+        left: 30%;
+        animation-delay: 2s;
+      }
+      .floater3 {
+        left: 50%;
+        animation-delay: 4s;
+      }
+      .floater4 {
+        left: 70%;
+        animation-delay: 6s;
+      }
+      .floater5 {
+        left: 90%;
+        animation-delay: 8s;
+      }
+
+      /* Space Madness section */
+      .space-madness {
+        background: #000;
+        color: #0f0;
+        padding: 40px;
+        margin: 40px 0;
+        border: 5px solid #0f0;
+        position: relative;
+        overflow: hidden;
+        font-family: monospace;
+        font-size: 1.5rem;
+      }
+
+      .space-madness::before {
+        content: "SPACE MADNESS SPACE MADNESS SPACE MADNESS";
+        position: absolute;
+        top: 0;
+        left: 0;
+        font-size: 8rem;
+        opacity: 0.1;
+        white-space: nowrap;
+        animation: scroll 10s linear infinite;
+      }
+
+      @keyframes scroll {
+        0% {
+          transform: translateX(100%);
+        }
+        100% {
+          transform: translateX(-100%);
+        }
+      }
+
+      /* T-shirt display */
+      .tshirt-display {
+        text-align: center;
+        padding: 40px;
+        background: repeating-conic-gradient(
+          from 0deg at 50% 50%,
+          #ff6b6b 0deg 10deg,
+          #4ecdc4 10deg 20deg,
+          #ffe66d 20deg 30deg
+        );
+        border: 10px solid #000;
+        margin: 40px 0;
+        position: relative;
+      }
+
+      .tshirt-img {
+        max-width: 500px;
+        width: 100%;
+        border: 10px solid #ff1744;
+        box-shadow: 0 0 50px #ff1744;
+        animation: tshirtWobble 2s infinite alternate;
+      }
+
+      @keyframes tshirtWobble {
+        0% {
+          transform: perspective(500px) rotateY(-10deg);
+        }
+        100% {
+          transform: perspective(500px) rotateY(10deg);
+        }
+      }
+
+      /* Final message */
+      .final-scream {
+        text-align: center;
+        padding: 60px;
+        margin: 40px 0;
+        background: #ff1744;
+        color: white;
+        font-size: 2rem;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .final-scream h2 {
+        font-family: "Creepster", cursive;
+        font-size: 4rem;
+        animation: scream 1s infinite alternate;
+      }
+
+      @keyframes scream {
+        0% {
+          transform: scale(1) rotate(-2deg);
+        }
+        100% {
+          transform: scale(1.2) rotate(2deg);
+        }
+      }
+
+      /* Responsive madness */
+      @media (max-width: 768px) {
+        .happy-joy {
+          font-size: 3rem;
+        }
+        .age-counter {
+          font-size: 8rem;
+        }
+        .log-text {
+          font-size: 2rem;
+        }
+        .big-red-button {
+          width: 200px;
+          height: 200px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Floating elements -->
+    <div class="floater floater1">🎂</div>
+    <div class="floater floater2">👴</div>
+    <div class="floater floater3">🌍</div>
+    <div class="floater floater4">☀️</div>
+    <div class="floater floater5">🚀</div>
+
+    <div class="container">
+      <!-- HAPPY HAPPY JOY JOY -->
+      <div class="main-title">
+        <h1 class="happy-joy">HAPPY HAPPY JOY JOY!</h1>
+      </div>
+
+      <!-- Age Display -->
+      <div class="age-counter">73!</div>
+
+      <!-- Log Section -->
+      <div class="log-section">
+        <div class="log-text">IT'S BETTER THAN BAD, IT'S GOOD!</div>
+        <p style="color: #ffe66d; font-size: 1.5rem; margin-top: 20px">
+          EVERYONE WANTS A LOG! YOU'RE GONNA LOVE IT, LOG!
+        </p>
+      </div>
+
+      <!-- Big Red Button -->
+      <button class="big-red-button" onclick="pressTheButton()">
+        <div class="button-text">DON'T<br />PRESS<br />THE<br />BUTTON!</div>
+      </button>
+
+      <!-- T-shirt Display -->
+      <div class="tshirt-display">
+        <h2
+          style="
+            font-family: 'Creepster', cursive;
+            font-size: 3rem;
+            color: #000;
+            margin-bottom: 20px;
+          "
+        >
+          SPACE MADNESS T-SHIRT!
+        </h2>
+        <img
+          src="assets/tshirt-73.png"
+          alt="73rd Birthday T-shirt"
+          class="tshirt-img"
+          onclick="tshirtMadness()"
+        />
+        <p style="font-size: 1.5rem; color: #000; margin-top: 20px">
+          "ORBITING SINCE 1952" - IN SPAAAACE!
+        </p>
+      </div>
+
+      <!-- Psycho Section with Veins -->
+      <div class="psycho-section">
+        <div class="vein vein1"></div>
+        <div class="vein vein2"></div>
+        <div class="vein vein3"></div>
+
+        <h2
+          style="
+            font-family: 'Creepster', cursive;
+            font-size: 3rem;
+            text-align: center;
+            color: #ff1744;
+          "
+        >
+          MEMORIES THAT MAKE MY EYES BULGE!
+        </h2>
+
+        <!-- Memory Cards -->
+        <div class="memory-card" onclick="revealMadness(this)">
+          <h3>THE BIKE INCIDENT</h3>
+          <div class="memory-text">
+            Remember when you taught me to ride that bike? You ran beside me for HOURS! Your
+            patience was BEAUTIFUL, MAN! *sniff*
+          </div>
+          <div class="crazy-reveal">
+            BUT I STILL CAN'T REACH THE TOP SHELF! MY ARMS! THEY'RE TOO STUMPY! GAHHHHH!
+          </div>
+        </div>
+
+        <div class="memory-card" onclick="revealMadness(this)">
+          <h3>LIFE LESSONS FROM SPACE</h3>
+          <div class="memory-text">
+            You taught me about hard work! Integrity! Respect! These values... they're... they're so
+            BEAUTIFUL!
+          </div>
+          <div class="crazy-reveal">
+            BUT THE FITTED SHEETS! THEY MOCK ME! THEY'RE IMPOSSIBLE! IMPOSSIBLEEEEE!
+          </div>
+        </div>
+
+        <div class="memory-card" onclick="revealMadness(this)">
+          <h3>WISDOM OF THE ANCIENTS</h3>
+          <div class="memory-text">
+            Your wisdom flows like... like... CHEESE! Beautiful, melted wisdom cheese!
+          </div>
+          <div class="crazy-reveal">
+            EXCEPT THAT TIME WITH THE COMPUTER! "JUST TURN IT OFF AND ON AGAIN!" IT EXPLODED, DAD!
+            EXPLODED!
+          </div>
+        </div>
+
+        <div class="memory-card" onclick="revealMadness(this)">
+          <h3>ROAD TRIP MADNESS</h3>
+          <div class="memory-text">
+            Those family trips! The open road! The wind in our hair! The FREEDOM!
+          </div>
+          <div class="crazy-reveal">
+            "ARE WE THERE YET?" I ASKED IT 4,000 TIMES! YOU NEVER SNAPPED! YOU'RE A SAINT! A
+            SAAAAAAINT!
+          </div>
+        </div>
+      </div>
+
+      <!-- Space Madness Section -->
+      <div class="space-madness">
+        <h2>INCOMING TRANSMISSION FROM YEAR 73:</h2>
+        <p>
+          YOU'VE BEEN ORBITING FOR 73 YEARS!<br />
+          NO SIGNS OF ATMOSPHERIC DEGRADATION!<br />
+          SYSTEMS: NOMINAL!<br />
+          DAD JOKES: MAXIMUM POWER!<br />
+          SPIDER FEAR LEVEL: STILL AT 11!
+        </p>
+      </div>
+
+      <!-- Gross Close-up -->
+      <div class="gross-closeup">
+        <h2
+          style="
+            font-family: 'Creepster', cursive;
+            font-size: 3rem;
+            text-align: center;
+            color: #d50000;
+          "
+        >
+          DAD'S GREATEST HITS!
+        </h2>
+        <p style="font-size: 1.5rem; color: #333; margin: 20px 0">
+          "MEASURE TWICE, CUT ONCE!" - UNLESS IT'S CAKE! THEN CUT! CUT! CUTTTT!
+        </p>
+        <p style="font-size: 1.5rem; color: #333; margin: 20px 0">
+          "IF IT AIN'T BROKE, DON'T FIX IT!" - DUCT TAPE IS LOVE! DUCT TAPE IS LIFE!
+        </p>
+        <p style="font-size: 1.5rem; color: #333; margin: 20px 0">
+          "EARLY TO BED, EARLY TO RISE!" - BUT THE INFOMERCIALS! THE BEAUTIFUL INFOMERCIALS!
+        </p>
+      </div>
+
+      <!-- Final Scream -->
+      <div class="final-scream">
+        <h2>HAPPY 73RD BIRTHDAY!</h2>
+        <p>
+          YOU'RE THE BEST DAD IN THIS OR ANY OTHER DIMENSION!<br />
+          EVEN THE SPACE MADNESS CAN'T CHANGE THAT!<br /><br />
+          WITH LOVE AND UNCONTROLLABLE EYE TWITCHING,<br />
+          YOUR KID WHO STILL CAN'T DO TAXES!
+        </p>
+        <div style="font-size: 5rem; margin-top: 30px; animation: spin 2s linear infinite">
+          🎂🎉🎈
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Button madness
+      function pressTheButton() {
+        alert("YOU FOOL! YOU'VE DOOMED US ALL! HAPPY BIRTHDAY!");
+        document.body.style.animation = "crazyShake 1s";
+        setTimeout(() => {
+          document.body.style.animation = "";
+        }, 1000);
+
+        // Create explosion of emojis
+        for (let i = 0; i < 50; i++) {
+          createExplosion();
+        }
+      }
+
+      function createExplosion() {
+        const emoji = document.createElement("div");
+        emoji.style.position = "fixed";
+        emoji.style.fontSize = "3rem";
+        emoji.style.left = "50%";
+        emoji.style.top = "50%";
+        emoji.style.zIndex = "9999";
+        emoji.textContent = ["🎂", "🎉", "🎈", "💥", "🌟"][Math.floor(Math.random() * 5)];
+        document.body.appendChild(emoji);
+
+        const angle = Math.random() * Math.PI * 2;
+        const velocity = 10 + Math.random() * 20;
+        const lifetime = 1000 + Math.random() * 1000;
+
+        let x = 0,
+          y = 0;
+        const interval = setInterval(() => {
+          x += Math.cos(angle) * velocity;
+          y += Math.sin(angle) * velocity;
+          emoji.style.transform = `translate(${x}px, ${y}px) rotate(${x}deg)`;
+          emoji.style.opacity = 1 - x / 500;
+        }, 20);
+
+        setTimeout(() => {
+          clearInterval(interval);
+          emoji.remove();
+        }, lifetime);
+      }
+
+      // Memory card madness
+      function revealMadness(card) {
+        const reveal = card.querySelector(".crazy-reveal");
+        reveal.style.display = reveal.style.display === "block" ? "none" : "block";
+
+        if (reveal.style.display === "block") {
+          card.style.animation = "crazyShake 0.5s";
+          setTimeout(() => {
+            card.style.animation = "";
+          }, 500);
+        }
+      }
+
+      // T-shirt madness
+      function tshirtMadness() {
+        const messages = [
+          "73 YEARS OF PURE MADNESS!",
+          "STILL ORBITING! CAN'T STOP! WON'T STOP!",
+          "SPACE MADNESS LEVEL: MAXIMUM!",
+          "IT'S LOG! IT'S LOG! IT'S BIG, IT'S HEAVY, IT'S WOOD!",
+        ];
+        alert(messages[Math.floor(Math.random() * messages.length)]);
+      }
+
+      // Random eye twitches
+      setInterval(() => {
+        const elements = document.querySelectorAll(".memory-card, .gross-closeup, .log-section");
+        const randomElement = elements[Math.floor(Math.random() * elements.length)];
+        randomElement.style.animation = "spaz 0.2s 3";
+        setTimeout(() => {
+          randomElement.style.animation = "";
+        }, 600);
+      }, 5000);
+    </script>
+  </body>
+</html>
