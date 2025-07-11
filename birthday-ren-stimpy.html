@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>REN & STIMPY BIRTHDAY MADNESS! - HAPPY 73RD DAD!</title>
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Creepster&family=Bungee&family=Modak&display=swap");
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background: #ff6b6b;
+        background-image: repeating-linear-gradient(
+            45deg,
+            transparent,
+            transparent 35px,
+            rgba(255, 255, 255, 0.1) 35px,
+            rgba(255, 255, 255, 0.1) 70px
+          ),
+          radial-gradient(circle at 20% 50%, #ff6b6b 0%, #4ecdc4 50%, #ffe66d 100%);
+        overflow-x: hidden;
+        font-family: "Bungee", cursive;
+        position: relative;
+        min-height: 100vh;
+        color: #000;
+      }
+
+      /* Enhanced veiny overlay */
+      body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M10,50 Q20,20 40,50 T70,50 T100,50" stroke="%23FF1744" stroke-width="0.5" fill="none" opacity="0.3"/><path d="M0,30 Q30,10 50,30 T80,30 T100,30" stroke="%23D50000" stroke-width="0.3" fill="none" opacity="0.2"/></svg>')
+          repeat;
+        pointer-events: none;
+        z-index: 1;
+        opacity: 0.5;
+        animation: pulseVeins 2s infinite alternate;
+      }
+
+      @keyframes pulseVeins {
+        0% {
+          opacity: 0.5;
+        }
+        100% {
+          opacity: 0.7;
+        }
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+        position: relative;
+        z-index: 2;
+      }
+
+      /* Epic Title with parallax */
+      .main-title {
+        text-align: center;
+        margin: 50px 0;
+        position: relative;
+        perspective: 1000px;
+      }
+
+      .happy-joy {
+        font-family: "Creepster", cursive;
+        font-size: 5rem;
+        color: #ffe66d;
+        text-shadow: 5px 5px 0 #ff1744, 10px 10px 0 #d50000, 15px 15px 20px rgba(0, 0, 0, 0.5);
+        letter-spacing: 8px;
+        transform-style: preserve-3d;
+        animation: titleWobble 1s infinite alternate;
+      }
+
+      @keyframes titleWobble {
+        0% {
+          transform: rotateY(-10deg) rotateX(5deg);
+        }
+        100% {
+          transform: rotateY(10deg) rotateX(-5deg);
+        }
+      }
+
+      .age-counter {
+        font-family: "Modak", cursive;
+        font-size: 12rem;
+        color: #4ecdc4;
+        text-align: center;
+        text-shadow: 0 0 20px #ff1744, 0 0 40px #ff1744;
+        animation: throbExplode 2s infinite;
+      }
+
+      @keyframes throbExplode {
+        0%,
+        100% {
+          transform: scale(1);
+          filter: brightness(1);
+        }
+        50% {
+          transform: scale(1.1);
+          filter: brightness(1.5);
+        }
+      }
+
+      /* Epic Story Panels with flip animation */
+      .story-panel {
+        background: #ffe66d;
+        border: 10px solid #ff1744;
+        border-radius: 40px;
+        padding: 20px;
+        margin: 40px 0;
+        position: relative;
+        box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.3), 0 20px 40px rgba(0, 0, 0, 0.5);
+        perspective: 1000px;
+        cursor: pointer;
+        transition: all 0.5s;
+        display: block;
+      }
+
+      .story-panel:hover {
+        transform: scale(1.05) rotate(2deg);
+      }
+
+      .story-content {
+        transition: transform 0.6s;
+        transform-style: preserve-3d;
+      }
+
+      .story-panel.flipped .story-content {
+        transform: rotateY(180deg);
+      }
+
+      .story-front,
+      .story-back {
+        backface-visibility: hidden;
+        position: absolute;
+        width: 100%;
+        left: 0;
+        padding: 10px;
+        box-sizing: border-box;
+        word-wrap: break-word;
+        hyphens: auto;
+      }
+
+      .story-back {
+        transform: rotateY(180deg);
+        color: #ff1744;
+        font-weight: bold;
+      }
+
+      .story-title {
+        font-family: "Creepster", cursive;
+        font-size: 2.5rem;
+        color: #d50000;
+        margin-bottom: 20px;
+      }
+
+      .story-text {
+        font-size: 1.3rem;
+        line-height: 1.6;
+      }
+
+      /* Health Journey - Epic Version */
+      .health-journey {
+        background: linear-gradient(135deg, #4ecdc4, #ffe66d);
+        padding: 50px;
+        margin: 50px 0;
+        border-radius: 50px;
+        border: 15px dashed #ff1744;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .health-journey::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(circle, transparent, rgba(255, 255, 255, 0.3));
+        animation: healthPulse 3s infinite;
+      }
+
+      @keyframes healthPulse {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.2);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      .health-title {
+        font-family: "Modak", cursive;
+        font-size: 4rem;
+        color: #d50000;
+        margin-bottom: 30px;
+        text-shadow: 0 0 10px #ffe66d;
+      }
+
+      /* VCR Button - Enhanced */
+      .vcr-button {
+        display: block;
+        width: 300px;
+        height: 100px;
+        margin: 40px auto;
+        background: #000;
+        color: #0f0;
+        font-family: monospace;
+        font-size: 2rem;
+        border: 8px solid #0f0;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+        transition: all 0.3s;
+        box-shadow: 0 0 30px #0f0;
+        animation: vcrGlow 1.5s infinite alternate;
+      }
+
+      @keyframes vcrGlow {
+        0% {
+          box-shadow: 0 0 10px #0f0;
+        }
+        100% {
+          box-shadow: 0 0 40px #0f0;
+        }
+      }
+
+      .vcr-button:hover {
+        transform: scale(1.1);
+      }
+
+      .vcr-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      /* More Floating Elements */
+      .floater {
+        position: fixed;
+        font-size: 3rem;
+        animation: floatChaotic 10s infinite linear;
+        z-index: 0;
+        opacity: 0.8;
+      }
+
+      @keyframes floatChaotic {
+        0% {
+          transform: translateY(100vh) rotate(0deg);
+        }
+        25% {
+          transform: translateY(75vh) rotate(90deg) scale(1.2);
+        }
+        50% {
+          transform: translateY(50vh) rotate(180deg) scale(0.8);
+        }
+        75% {
+          transform: translateY(25vh) rotate(270deg) scale(1.2);
+        }
+        100% {
+          transform: translateY(-10vh) rotate(360deg) scale(1);
+        }
+      }
+
+      .floater1 {
+        left: 5%;
+        animation-delay: 0s;
+      }
+      .floater2 {
+        left: 20%;
+        animation-delay: 1s;
+      }
+      .floater3 {
+        left: 35%;
+        animation-delay: 2s;
+      }
+      .floater4 {
+        left: 50%;
+        animation-delay: 3s;
+      }
+      .floater5 {
+        left: 65%;
+        animation-delay: 4s;
+      }
+      .floater6 {
+        left: 80%;
+        animation-delay: 5s;
+      }
+      .floater7 {
+        left: 95%;
+        animation-delay: 6s;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .happy-joy {
+          font-size: 3rem;
+        }
+        .age-counter {
+          font-size: 8rem;
+        }
+        .story-panel {
+          padding: 25px;
+        }
+        .health-title {
+          font-size: 2.5rem;
+        }
+        .vcr-button {
+          width: 200px;
+          height: 70px;
+          font-size: 1.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- More Floating elements for epic feel -->
+    <div class="floater floater1">📼</div>
+    <div class="floater floater2">🍌</div>
+    <div class="floater floater3">🥦</div>
+    <div class="floater floater4">🚀</div>
+    <div class="floater floater5">❤️</div>
+    <div class="floater floater6">🎂</div>
+    <div class="floater floater7">🌍</div>
+
+    <div class="container">
+      <!-- Main Title -->
+      <div class="main-title">
+        <h1 class="happy-joy">HAPPY 73RD BIRTHDAY, DAD!</h1>
+      </div>
+
+      <div class="age-counter">73!</div>
+
+      <!-- VCR Story Interactive Panels with Flip -->
+      <div class="story-panel" onclick="flipPanel(this)">
+        <div class="story-content">
+          <div class="story-front">
+            <h2 class="story-title">THE BROKEN VCR CATASTROPHE!</h2>
+            <p class="story-text">
+              Remember that fateful day in the 90s? It was time for our daily Ren & Stimpy fix! We
+              popped in the tape, hit play, and... NOTHING! The VCR betrayed us! It sputtered, it
+              sparked, it DIED! "OH NOOOOO!" I cried, just like Stimpy!
+            </p>
+          </div>
+          <div class="story-back">
+            <p class="story-text">
+              But you, Dad? You didn't panic. You said, "Don't worry, son. I'll fix this!" And off
+              you went into the wild world of electronics stores...
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="story-panel" onclick="flipPanel(this)">
+        <div class="story-content">
+          <div class="story-front">
+            <h2 class="story-title">THE GREAT VCR QUEST!</h2>
+            <p class="story-text">
+              You ventured forth like Ren on a space mission! Battling traffic, dodging pushy
+              salespeople, researching the HIGHEST RATED, MOST RELIABLE VCR on the market! Hours
+              passed... I thought we'd never see "Happy Happy Joy Joy" again!
+            </p>
+          </div>
+          <div class="story-back">
+            <p class="story-text">
+              But you returned TRIUMPHANT! With the ULTIMATE VCR - built like a tank, with turbo
+              rewind! "No more missed episodes!" you declared. And we watched R&S that night,
+              laughing till our sides hurt!
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="story-panel" onclick="flipPanel(this)">
+        <div class="story-content">
+          <div class="story-front">
+            <h2 class="story-title">OUR FAVORITE MEMORIES!</h2>
+            <p class="story-text">
+              Those afternoons watching Ren's freakouts and Stimpy's joy... they were the best!
+              Daniel and I did the voices while you laughed along - "YOU EEEDIOT!" We'd all roll on
+              the floor!
+            </p>
+          </div>
+          <div class="story-back">
+            <p class="story-text">
+              And now, at 43, I still quote the show. Thanks for those memories, Dad. (And for not
+              letting a broken VCR ruin our cartoon ritual!)
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Health Journey Tribute -->
+      <div class="health-journey">
+        <h2 class="health-title">YOUR EPIC HEALTH ADVENTURE!</h2>
+        <p style="font-size: 1.3rem; margin-bottom: 15px">
+          Dad, your journey from stroke, diabetes, and heart bypass to TOTAL HEALTH REVERSAL is
+          straight out of a Ren & Stimpy episode - CHAOTIC but VICTORIOUS!
+        </p>
+        <p style="font-size: 1.3rem; margin-bottom: 15px">
+          Switching to whole food plant-based? You dropped 80lbs, ditched 18 meds, reversed
+          diabetes! If you hadn't, we might've lost you years ago. But like finding that perfect
+          VCR, you FOUND THE WAY!
+        </p>
+        <p style="font-size: 1.3rem; font-weight: bold; color: #d50000">
+          We're SO GLAD you're here, orbiting at 73! Your strength inspires us all - just like how
+          you saved our R&S marathons!
+        </p>
+      </div>
+
+      <!-- Interactive VCR Button -->
+      <button class="vcr-button" onclick="playEpisode()">
+        <div class="vcr-text">PLAY EPISODE</div>
+      </button>
+
+      <!-- Final Message -->
+      <div class="story-panel">
+        <h2 class="story-title">HAPPY BIRTHDAY, YOU EEEDIOT! (With Love)</h2>
+        <p class="story-text">
+          Dad, thanks for the laughs, the lessons, and for always going the extra mile - whether
+          it's fixing a VCR or transforming your health. You're our hero! Here's to many more years
+          of adventures (and maybe some R&S reruns?)
+        </p>
+        <p style="font-size: 1.5rem; text-align: center; margin-top: 20px">
+          Love, Your 43-Year-Old Son (Who Still Can't Do Voices as Good as Daniel!)
+        </p>
+      </div>
+    </div>
+
+    <script>
+      function flipPanel(panel) {
+        panel.classList.toggle("flipped");
+        panel.style.animation = "shake 0.5s";
+        setTimeout(() => {
+          panel.style.animation = "";
+          setPanelHeights(); // Recalculate after flip
+        }, 500);
+      }
+
+      function playEpisode() {
+        alert(
+          "*VCR whirring* HAPPY HAPPY JOY JOY! Thanks for the memories, Dad! Let's binge-watch soon!"
+        );
+        document.body.style.animation = "spaz 0.5s 3";
+        setTimeout(() => {
+          document.body.style.animation = "";
+        }, 1500);
+      }
+
+      // Random twitches
+      setInterval(() => {
+        const panels = document.querySelectorAll(".story-panel");
+        const randomPanel = panels[Math.floor(Math.random() * panels.length)];
+        randomPanel.style.animation = "spaz 0.3s 2";
+        setTimeout(() => {
+          randomPanel.style.animation = "";
+        }, 600);
+      }, 3000);
+
+      // Parallax on scroll for epic depth
+      window.addEventListener("scroll", () => {
+        const scroll = window.pageYOffset;
+        document.querySelectorAll(".floater").forEach((f) => {
+          f.style.transform = `translateY(${scroll * 0.5}px)`;
+        });
+      });
+
+      function setPanelHeights() {
+        document.querySelectorAll(".story-panel").forEach((panel) => {
+          panel.style.height = "auto"; // Reset
+          const front = panel.querySelector(".story-front");
+          const back = panel.querySelector(".story-back");
+          const maxHeight = Math.max(front.offsetHeight, back.offsetHeight);
+          panel.style.height = `${maxHeight}px`;
+        });
+      }
+
+      window.addEventListener("load", setPanelHeights);
+      window.addEventListener("resize", setPanelHeights);
+    </script>
+  </body>
+</html>
