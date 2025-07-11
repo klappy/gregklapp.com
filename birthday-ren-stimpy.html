@@ -31,6 +31,166 @@
         color: #000;
       }
 
+      /* Mode Selection Screen */
+      .mode-selection {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.9);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1000;
+        flex-direction: column;
+      }
+
+      .mode-title {
+        font-family: "Creepster", cursive;
+        font-size: 4rem;
+        color: #ffe66d;
+        text-shadow: 5px 5px 0 #ff1744;
+        margin-bottom: 50px;
+        text-align: center;
+        animation: modeGlow 2s infinite alternate;
+      }
+
+      @keyframes modeGlow {
+        0% {
+          text-shadow: 5px 5px 0 #ff1744;
+        }
+        100% {
+          text-shadow: 5px 5px 0 #ff1744, 0 0 30px #ffe66d;
+        }
+      }
+
+      .mode-buttons {
+        display: flex;
+        gap: 50px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .mode-button {
+        background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+        border: 8px solid #ff1744;
+        border-radius: 20px;
+        padding: 30px 40px;
+        font-family: "Bungee", cursive;
+        font-size: 1.5rem;
+        color: #fff;
+        cursor: pointer;
+        transition: all 0.3s;
+        text-align: center;
+        min-width: 250px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+      }
+
+      .mode-button:hover {
+        transform: scale(1.1) rotate(2deg);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.7);
+      }
+
+      .mode-button .mode-icon {
+        font-size: 3rem;
+        margin-bottom: 15px;
+        display: block;
+      }
+
+      /* VCR Player Mode */
+      .vcr-mode {
+        display: none;
+        position: relative;
+        height: 100vh;
+        overflow: hidden;
+      }
+
+      .vcr-screen {
+        width: 80%;
+        height: 70%;
+        margin: 50px auto;
+        background: #000;
+        border: 20px solid #333;
+        border-radius: 15px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .vcr-content {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+      }
+
+      .vcr-element {
+        display: none;
+        width: 100%;
+        height: 100%;
+        padding: 40px;
+        box-sizing: border-box;
+        overflow-y: auto;
+      }
+
+      .vcr-element.active {
+        display: block;
+      }
+
+      .vcr-remote {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background: #333;
+        border: 5px solid #666;
+        border-radius: 15px;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        z-index: 100;
+      }
+
+      .remote-button {
+        background: #555;
+        border: 2px solid #777;
+        border-radius: 8px;
+        padding: 10px 15px;
+        color: #fff;
+        font-family: monospace;
+        font-size: 0.9rem;
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+
+      .remote-button:hover {
+        background: #777;
+        transform: scale(1.05);
+      }
+
+      .remote-button:active {
+        background: #999;
+      }
+
+      .vcr-counter {
+        position: absolute;
+        top: 10px;
+        right: 20px;
+        background: #000;
+        color: #0f0;
+        padding: 5px 10px;
+        font-family: monospace;
+        font-size: 1rem;
+        border-radius: 5px;
+      }
+
+      /* Scroll Mode */
+      .scroll-mode {
+        display: none;
+      }
+
       /* Enhanced veiny overlay */
       body::before {
         content: "";
@@ -872,456 +1032,837 @@
           height: 70px;
           font-size: 1.5rem;
         }
+        .mode-button {
+          min-width: 200px;
+          padding: 20px 30px;
+          font-size: 1.2rem;
+        }
+        .mode-title {
+          font-size: 2.5rem;
+        }
+        .vcr-screen {
+          width: 95%;
+          height: 60%;
+        }
+      }
+
+      /* YouTube iframe styling */
+      .youtube-embed {
+        margin-top: 20px;
+        text-align: center;
+      }
+
+      .youtube-embed iframe {
+        border-radius: 10px;
+        border: 3px solid #ff1744;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      }
+
+      /* VCR mode YouTube embeds - smaller */
+      .vcr-element .youtube-embed iframe {
+        width: 320px;
+        height: 180px;
+      }
+
+      /* Scroll mode YouTube embeds - larger */
+      .scroll-mode .youtube-embed iframe {
+        width: 560px;
+        height: 315px;
+      }
+
+      /* Responsive for mobile */
+      @media (max-width: 768px) {
+        .vcr-element .youtube-embed iframe,
+        .scroll-mode .youtube-embed iframe {
+          width: 100%;
+          max-width: 350px;
+          height: 200px;
+        }
       }
     </style>
   </head>
   <body>
-    <!-- More Floating elements for epic feel -->
-    <div class="floater floater1">📼</div>
-    <div class="floater floater2">🍌</div>
-    <div class="floater floater3">🥦</div>
-    <div class="floater floater4">🚀</div>
-    <div class="floater floater5">❤️</div>
-    <div class="floater floater6">🎂</div>
-    <div class="floater floater7">🌍</div>
-    <div class="gross-floater" style="left: 15%; animation-delay: 0s">💦</div>
-    <!-- Sweat -->
-    <div class="gross-floater" style="left: 25%; animation-delay: 2s">👁️</div>
-    <!-- Eyeball -->
-    <div class="gross-floater" style="left: 45%; animation-delay: 4s">🦠</div>
-    <!-- Booger -->
-    <div class="gross-floater" style="left: 55%; animation-delay: 6s">💥</div>
-    <!-- Explosion -->
-    <div class="gross-floater" style="left: 75%; animation-delay: 8s">🩸</div>
-    <!-- Vein -->
-
-    <div class="container">
-      <!-- Main Title -->
-      <div class="main-title">
-        <h1 class="happy-joy">HAPPY 73RD BIRTHDAY, DAD!</h1>
+    <!-- Mode Selection Screen -->
+    <div class="mode-selection" id="modeSelection">
+      <h1 class="mode-title">CHOOSE YOUR EXPERIENCE!</h1>
+      <div class="mode-buttons">
+        <div class="mode-button" onclick="selectMode('vcr')">
+          <span class="mode-icon">📼</span>
+          VCR PLAYER MODE<br />
+          <small>Watch like it's the 90s!</small>
+        </div>
+        <div class="mode-button" onclick="selectMode('scroll')">
+          <span class="mode-icon">📜</span>
+          SCROLL MODE<br />
+          <small>Classic webpage style!</small>
+        </div>
       </div>
+    </div>
 
-      <div class="age-counter">73!</div>
-
-      <!-- VCR Story Interactive Panels with Flip -->
-      <div class="story-panel" onclick="flipPanel(this)">
-        <div class="story-content">
-          <div class="story-front">
-            <h2 class="story-title">THE BROKEN VCR CATASTROPHE!</h2>
-            <p class="story-text">
-              Remember that day in the 90s? Time for our daily Ren & Stimpy fix! We popped in the
-              tape, hit play, and... NOTHING! The VCR betrayed us! "OH NOOOOO!" I cried, just like
-              Stimpy!
-            </p>
+    <!-- VCR Player Mode -->
+    <div class="vcr-mode" id="vcrMode">
+      <div class="vcr-screen">
+        <div class="vcr-counter" id="vcrCounter">01/15</div>
+        <div class="vcr-content">
+          <!-- VCR Element 1: Title -->
+          <div class="vcr-element active" id="vcr-1">
+            <div class="main-title">
+              <h1 class="happy-joy">HAPPY 73RD BIRTHDAY, DAD!</h1>
+            </div>
+            <div class="age-counter">73!</div>
           </div>
-          <div class="story-back">
-            <p class="story-text">
-              But you, Dad? You didn't panic. You said, "Don't worry, son. I'll fix this!" And off
-              you went to find the perfect VCR replacement!
-            </p>
+
+          <!-- VCR Element 2: VCR Story -->
+          <div class="vcr-element" id="vcr-2">
+            <div class="vcr-display">
+              <div style="font-size: 1.5rem; margin-bottom: 10px">REN & STIMPY VCR</div>
+              <div style="font-size: 1rem; margin-bottom: 5px">STATUS: RESCUED BY DAD</div>
+              <div style="font-size: 1rem; margin-bottom: 5px">EPISODES SAVED: ALL OF THEM</div>
+              <div style="font-size: 1rem; margin-bottom: 10px">TURBO REWIND: ✓ ACTIVATED</div>
+              <div style="font-size: 0.8rem; animation: blink 1s infinite">
+                ● REC ● PLAY ● REWIND
+              </div>
+            </div>
+          </div>
+
+          <!-- VCR Element 3: Log -->
+          <div class="vcr-element" id="vcr-3">
+            <div class="log-section">
+              <div class="log-text">IT'S BETTER THAN BAD, IT'S GOOD!</div>
+              <p
+                style="
+                  color: #ffe66d;
+                  font-size: 1.2rem;
+                  margin-top: 15px;
+                  font-family: 'Bungee', cursive;
+                "
+              >
+                EVERYONE WANTS A LOG! YOU'RE GONNA LOVE IT, LOG!
+              </p>
+              <div class="youtube-embed">
+                <iframe
+                  src="https://www.youtube.com/embed/PNNZytfFAyg"
+                  frameborder="0"
+                  allowfullscreen
+                ></iframe>
+              </div>
+            </div>
+          </div>
+
+          <!-- VCR Element 4: Electric Fence -->
+          <div class="vcr-element" id="vcr-4">
+            <div class="electric-fence">
+              <h3
+                style="
+                  font-family: 'Creepster', cursive;
+                  font-size: 2rem;
+                  color: #ff0000;
+                  margin-bottom: 10px;
+                "
+              >
+                DON'T WIZ ON THE ELECTRIC FENCE!
+              </h3>
+              <p style="font-size: 1.2rem; color: #000; font-weight: bold">IT'LL HURT REAL BAD!</p>
+              <div style="font-size: 2rem; margin-top: 10px">⚡💀⚡</div>
+              <div class="youtube-embed">
+                <iframe
+                  src="https://www.youtube.com/embed/_wW6rENTfaU"
+                  frameborder="0"
+                  allowfullscreen
+                ></iframe>
+              </div>
+            </div>
+          </div>
+
+          <!-- VCR Element 5: Powdered Toast Man -->
+          <div class="vcr-element" id="vcr-5">
+            <div class="toast-logo"></div>
+            <div style="text-align: center; margin-top: 20px">
+              <p style="font-family: 'Creepster', cursive; font-size: 1.5rem; color: #8b4513">
+                "CLING TENACIOUSLY TO MY BUTTOCKS!"
+              </p>
+              <div class="youtube-embed">
+                <iframe
+                  src="https://www.youtube.com/embed/kMoXQgVQw6E"
+                  frameborder="0"
+                  allowfullscreen
+                ></iframe>
+              </div>
+            </div>
+          </div>
+
+          <!-- VCR Element 6: Dental Nightmare -->
+          <div class="vcr-element" id="vcr-6">
+            <div class="dental-nightmare">
+              <h3
+                style="
+                  font-family: 'Creepster', cursive;
+                  font-size: 2rem;
+                  color: #8b008b;
+                  margin-bottom: 10px;
+                "
+              >
+                DENTAL NIGHTMARE!
+              </h3>
+              <p style="font-size: 1.3rem; color: #4b0082; font-weight: bold">
+                "I am the Tooth Fairy!"
+              </p>
+              <p style="font-size: 1rem; color: #8b008b; margin-top: 10px">
+                *creepy fairy laughter*
+              </p>
+              <div class="youtube-embed">
+                <iframe
+                  src="https://www.youtube.com/embed/_PWcDTdRYgk"
+                  frameborder="0"
+                  allowfullscreen
+                ></iframe>
+              </div>
+            </div>
+          </div>
+
+          <!-- VCR Element 7: Missing Poster -->
+          <div class="vcr-element" id="vcr-7">
+            <div class="missing-poster">
+              <h3 style="font-size: 1.5rem; margin-bottom: 15px; text-decoration: underline">
+                HAVE YOU SMELLED ME?
+              </h3>
+              <p style="font-size: 1.1rem; margin-bottom: 10px">LAST SEEN: Stimpy's butt</p>
+              <p style="font-size: 1.1rem; margin-bottom: 10px">
+                DESCRIPTION: Stinky, green, gaseous
+              </p>
+              <p style="font-size: 1.1rem; margin-bottom: 15px">ANSWERS TO: *fart noise*</p>
+              <p style="font-size: 0.9rem; font-style: italic">
+                If found, please return to Stimpy J. Cat
+              </p>
+              <p style="font-size: 0.8rem; margin-top: 10px">REWARD: One belly rub</p>
+            </div>
+          </div>
+
+          <!-- VCR Element 8: History Eraser Button -->
+          <div class="vcr-element" id="vcr-8">
+            <div class="history-eraser" onclick="eraseHistory()">
+              <div style="color: #fff; font-size: 1.5rem; font-weight: bold; text-align: center">
+                DON'T<br />TOUCH<br />IT!
+              </div>
+            </div>
+            <div style="text-align: center; margin-top: 10px">
+              <p style="font-family: 'Creepster', cursive; font-size: 1.2rem; color: #ff0000">
+                "We'll never know what it does because you're not going to touch it!"
+              </p>
+              <div class="youtube-embed">
+                <iframe
+                  src="https://www.youtube.com/embed/GvDCgR_9-fE"
+                  frameborder="0"
+                  allowfullscreen
+                ></iframe>
+              </div>
+            </div>
+          </div>
+
+          <!-- VCR Element 9: Happy Happy Joy Joy -->
+          <div class="vcr-element" id="vcr-9">
+            <div class="happy-joy-section">
+              <div class="happy-joy-text">HAPPY HAPPY JOY JOY!</div>
+              <p style="font-size: 1.3rem; color: #fff; margin-top: 15px; font-weight: bold">
+                "I told you I'd shoot, but you didn't believe me! WHY DIDN'T YOU BELIEVE ME?!"
+              </p>
+              <div class="youtube-embed">
+                <iframe
+                  src="https://www.youtube.com/embed/Wog-z_Esnw4"
+                  frameborder="0"
+                  allowfullscreen
+                ></iframe>
+              </div>
+            </div>
+          </div>
+
+          <!-- VCR Element 10: Rubber Nipple Salesmen -->
+          <div class="vcr-element" id="vcr-10">
+            <div class="rubber-nipple">
+              <h3
+                style="
+                  font-family: 'Creepster', cursive;
+                  font-size: 2rem;
+                  color: #8b008b;
+                  margin-bottom: 10px;
+                "
+              >
+                RUBBER NIPPLE SALESMEN!
+              </h3>
+              <p style="font-size: 1.2rem; color: #4b0082; font-weight: bold">"Call the police!"</p>
+              <p style="font-size: 1rem; color: #8b008b; margin-top: 10px">
+                "We're not hitchhiking anymore, we're riding!"
+              </p>
+              <div class="youtube-embed">
+                <iframe
+                  src="https://www.youtube.com/embed/--bcOUAtaSQ"
+                  frameborder="0"
+                  allowfullscreen
+                ></iframe>
+              </div>
+            </div>
+          </div>
+
+          <!-- VCR Element 11: Sven Hoek -->
+          <div class="vcr-element" id="vcr-11">
+            <div class="sven-section">
+              <h3
+                style="
+                  font-family: 'Creepster', cursive;
+                  font-size: 2rem;
+                  color: #006400;
+                  margin-bottom: 10px;
+                "
+              >
+                SVEN HOEK!
+              </h3>
+              <p style="font-size: 1.2rem; color: #000; font-weight: bold">
+                "Stimpy, this is my cousin Sven!"
+              </p>
+              <p style="font-size: 1rem; color: #006400; margin-top: 10px">
+                "He's even stupider than you!"
+              </p>
+              <div class="youtube-embed">
+                <iframe
+                  src="https://www.youtube.com/embed/GT0HWjOj7ws"
+                  frameborder="0"
+                  allowfullscreen
+                ></iframe>
+              </div>
+            </div>
+          </div>
+
+          <!-- VCR Element 12: Jerry the Bellybutton Elf -->
+          <div class="vcr-element" id="vcr-12">
+            <div class="bellybutton-elf">
+              <h3
+                style="
+                  font-family: 'Creepster', cursive;
+                  font-size: 1.8rem;
+                  color: #8b008b;
+                  margin-bottom: 10px;
+                "
+              >
+                JERRY THE BELLYBUTTON ELF!
+              </h3>
+              <p style="font-size: 1.1rem; color: #4b0082; font-weight: bold">
+                "I live in your bellybutton!"
+              </p>
+              <p style="font-size: 0.9rem; color: #8b008b; margin-top: 10px">*tiny elf voice*</p>
+              <div class="youtube-embed">
+                <iframe
+                  src="https://www.youtube.com/embed/gqqD6dISRBQ"
+                  frameborder="0"
+                  allowfullscreen
+                ></iframe>
+              </div>
+            </div>
+          </div>
+
+          <!-- VCR Element 13: Stimpy's Invention -->
+          <div class="vcr-element" id="vcr-13">
+            <div class="invention-section">
+              <h3
+                style="
+                  font-family: 'Creepster', cursive;
+                  font-size: 2rem;
+                  color: #ff4500;
+                  margin-bottom: 10px;
+                "
+              >
+                STIMPY'S INVENTION!
+              </h3>
+              <p style="font-size: 1.2rem; color: #000; font-weight: bold">
+                "It's my Happy Helmet!"
+              </p>
+              <p style="font-size: 1rem; color: #ff4500; margin-top: 10px">
+                "Now you'll be happy ALL the time!"
+              </p>
+              <div class="youtube-embed">
+                <iframe
+                  src="https://www.youtube.com/embed/Ly9f9AwTYo8"
+                  frameborder="0"
+                  allowfullscreen
+                ></iframe>
+              </div>
+            </div>
+          </div>
+
+          <!-- VCR Element 14: Health Journey -->
+          <div class="vcr-element" id="vcr-14">
+            <div class="health-journey">
+              <h2 class="health-title">YOUR EPIC HEALTH ADVENTURE!</h2>
+              <p style="font-size: 1.3rem; margin-bottom: 15px">
+                Dad, your journey from stroke, diabetes, and heart bypass to TOTAL HEALTH REVERSAL
+                is straight out of a Ren & Stimpy episode - CHAOTIC but VICTORIOUS!
+              </p>
+              <p style="font-size: 1.3rem; margin-bottom: 15px">
+                Switching to whole food plant-based? You dropped 80lbs, ditched 18 meds, reversed
+                diabetes! If you hadn't, we might've lost you years ago. But like finding that
+                perfect VCR, you FOUND THE WAY!
+              </p>
+              <p style="font-size: 1.3rem; font-weight: bold; color: #d50000">
+                We're SO GLAD you're here, orbiting at 73! Your strength inspires us all - just like
+                how you saved our R&S marathons!
+              </p>
+            </div>
+          </div>
+
+          <!-- VCR Element 15: Final Message -->
+          <div class="vcr-element" id="vcr-15">
+            <div class="story-panel">
+              <h2 class="story-title">HAPPY BIRTHDAY, YOU EEEDIOT! (With Love)</h2>
+              <p class="story-text">
+                Dad, thanks for the laughs, the lessons, and for always going the extra mile -
+                whether it's fixing a VCR or transforming your health. You're our hero! Here's to
+                many more years of adventures (and maybe some R&S reruns?)
+              </p>
+              <p style="font-size: 1.5rem; text-align: center; margin-top: 20px">
+                Love, Your 43-Year-Old Son (Who Still Can't Remember as Many Lines as Daniel!)
+              </p>
+            </div>
+
+            <!-- Embedded Happy Birthday Clip -->
+            <div
+              class="video-panel"
+              style="text-align: center; cursor: default; margin-top: 20px"
+              onclick="event.stopPropagation()"
+            >
+              <h2 class="story-title">WATCH THE HAPPY BIRTHDAY CLIP!</h2>
+              <iframe
+                width="560"
+                height="315"
+                src="https://www.youtube.com/embed/37bKxaoZbS8"
+                title="Ren & Stimpy Happy Birthday Clip"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+                style="max-width: 100%; z-index: 15; position: relative"
+              ></iframe>
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="story-panel" onclick="flipPanel(this)">
-        <div class="story-content">
-          <div class="story-front">
-            <h2 class="story-title">THE GREAT VCR QUEST!</h2>
-            <p class="story-text">
-              You ventured forth like Ren on a space mission! Battling traffic, dodging pushy
-              salespeople, researching the BEST VCR on the market! Hours passed... I thought we'd
-              never see "Happy Happy Joy Joy" again!
-            </p>
-          </div>
-          <div class="story-back">
-            <p class="story-text">
-              But you returned TRIUMPHANT! With the ULTIMATE VCR - built like a tank, with turbo
-              rewind! "No more missed episodes!" you declared. We watched R&S that night, laughing
-              till our sides hurt!
-            </p>
+      <!-- VCR Remote Control -->
+      <div class="vcr-remote">
+        <button class="remote-button" onclick="previousElement()">◀◀ REW</button>
+        <button class="remote-button" onclick="nextElement()">FF ▶▶</button>
+        <button class="remote-button" onclick="goToElement(1)">⏮ START</button>
+        <button class="remote-button" onclick="goToElement(15)">⏭ END</button>
+        <button class="remote-button" onclick="switchMode()">📜 SCROLL</button>
+      </div>
+    </div>
+
+    <!-- Scroll Mode (Original) -->
+    <div class="scroll-mode" id="scrollMode">
+      <!-- More Floating elements for epic feel -->
+      <div class="floater floater1">📼</div>
+      <div class="floater floater2">🍌</div>
+      <div class="floater floater3">🥦</div>
+      <div class="floater floater4">🚀</div>
+      <div class="floater floater5">❤️</div>
+      <div class="floater floater6">🎂</div>
+      <div class="floater floater7">🌍</div>
+      <div class="gross-floater" style="left: 15%; animation-delay: 0s">💦</div>
+      <div class="gross-floater" style="left: 25%; animation-delay: 2s">👁️</div>
+      <div class="gross-floater" style="left: 45%; animation-delay: 4s">🦠</div>
+      <div class="gross-floater" style="left: 55%; animation-delay: 6s">💥</div>
+      <div class="gross-floater" style="left: 75%; animation-delay: 8s">🩸</div>
+
+      <div class="container">
+        <!-- Main Title -->
+        <div class="main-title">
+          <h1 class="happy-joy">HAPPY 73RD BIRTHDAY, DAD!</h1>
+        </div>
+
+        <div class="age-counter">73!</div>
+
+        <!-- VCR Story Visual -->
+        <div class="vcr-display">
+          <div style="font-size: 1.5rem; margin-bottom: 10px">REN & STIMPY VCR</div>
+          <div style="font-size: 1rem; margin-bottom: 5px">STATUS: RESCUED BY DAD</div>
+          <div style="font-size: 1rem; margin-bottom: 5px">EPISODES SAVED: ALL OF THEM</div>
+          <div style="font-size: 1rem; margin-bottom: 10px">TURBO REWIND: ✓ ACTIVATED</div>
+          <div style="font-size: 0.8rem; animation: blink 1s infinite">● REC ● PLAY ● REWIND</div>
+        </div>
+
+        <!-- LOG Visual Element -->
+        <div class="log-section">
+          <div class="log-text">IT'S BETTER THAN BAD, IT'S GOOD!</div>
+          <p
+            style="
+              color: #ffe66d;
+              font-size: 1.2rem;
+              margin-top: 15px;
+              font-family: 'Bungee', cursive;
+            "
+          >
+            EVERYONE WANTS A LOG! YOU'RE GONNA LOVE IT, LOG!
+          </p>
+          <div class="youtube-embed">
+            <iframe
+              src="https://www.youtube.com/embed/PNNZytfFAyg"
+              frameborder="0"
+              allowfullscreen
+            ></iframe>
           </div>
         </div>
-      </div>
 
-      <div class="story-panel" onclick="flipPanel(this)">
-        <div class="story-content">
-          <div class="story-front">
-            <h2 class="story-title">OUR FAVORITE MEMORIES!</h2>
-            <p class="story-text">
-              Those afternoons watching Ren's freakouts and Stimpy's joy... they were the best!
-              Daniel and I did the voices while you laughed - "YOU EEEDIOT!" We'd all roll on the
-              floor!
-            </p>
-          </div>
-          <div class="story-back">
-            <p class="story-text">
-              And now, at 43, I still quote the show. Thanks for those memories, Dad. (And for not
-              letting a broken VCR ruin our cartoon ritual!)
-            </p>
+        <!-- Electric Fence Warning Visual -->
+        <div class="electric-fence">
+          <h3
+            style="
+              font-family: 'Creepster', cursive;
+              font-size: 2rem;
+              color: #ff0000;
+              margin-bottom: 10px;
+            "
+          >
+            DON'T WIZ ON THE ELECTRIC FENCE!
+          </h3>
+          <p style="font-size: 1.2rem; color: #000; font-weight: bold">IT'LL HURT REAL BAD!</p>
+          <div style="font-size: 2rem; margin-top: 10px">⚡💀⚡</div>
+          <div class="youtube-embed">
+            <iframe
+              src="https://www.youtube.com/embed/_wW6rENTfaU"
+              frameborder="0"
+              allowfullscreen
+            ></iframe>
           </div>
         </div>
-      </div>
 
-      <!-- New Panel: Don't Wiz on the Electric Fence -->
-      <div class="story-panel" onclick="flipPanel(this)">
-        <div class="story-content">
-          <div class="story-front">
-            <h2 class="story-title">DON'T WIZ ON THE ELECTRIC FENCE!</h2>
-            <p class="story-text">
-              "Don't wiz on the electric fence!" - Classic Ren wisdom from the board game episode.
-              Sometimes the best advice is the most obvious!
-            </p>
-          </div>
-          <div class="story-back">
-            <p class="story-text">
-              "It'll hurt real bad!" Just like Ren's warnings, your life advice always kept us safe,
-              Dad!
-            </p>
+        <!-- Powdered Toast Man Logo -->
+        <div class="toast-logo"></div>
+        <div style="text-align: center; margin-top: -10px">
+          <p style="font-family: 'Creepster', cursive; font-size: 1.5rem; color: #8b4513">
+            "CLING TENACIOUSLY TO MY BUTTOCKS!"
+          </p>
+          <div class="youtube-embed">
+            <iframe
+              src="https://www.youtube.com/embed/kMoXQgVQw6E"
+              frameborder="0"
+              allowfullscreen
+            ></iframe>
           </div>
         </div>
-      </div>
 
-      <!-- New Panel: Powdered Toast Man -->
-      <div class="story-panel" onclick="flipPanel(this)">
-        <div class="story-content">
-          <div class="story-front">
-            <h2 class="story-title">POWDERED TOAST MAN!</h2>
-            <p class="story-text">
-              "Quick, man! Cling tenaciously to my buttocks!" The superhero who flies backwards and
-              saves the day with toast powers!
-            </p>
-          </div>
-          <div class="story-back">
-            <p class="story-text">
-              "Leave everything to me!" Just like PTM, you always swooped in to save the day, Dad!
-            </p>
+        <!-- Dental Nightmare Visual -->
+        <div class="dental-nightmare">
+          <h3
+            style="
+              font-family: 'Creepster', cursive;
+              font-size: 2rem;
+              color: #8b008b;
+              margin-bottom: 10px;
+            "
+          >
+            DENTAL NIGHTMARE!
+          </h3>
+          <p style="font-size: 1.3rem; color: #4b0082; font-weight: bold">
+            "I am the Tooth Fairy!"
+          </p>
+          <p style="font-size: 1rem; color: #8b008b; margin-top: 10px">*creepy fairy laughter*</p>
+          <div class="youtube-embed">
+            <iframe
+              src="https://www.youtube.com/embed/_PWcDTdRYgk"
+              frameborder="0"
+              allowfullscreen
+            ></iframe>
           </div>
         </div>
-      </div>
 
-      <!-- New Panel: Log Quote -->
-      <div class="story-panel" onclick="flipPanel(this)">
-        <div class="story-content">
-          <div class="story-front">
-            <h2 class="story-title">IT'S LOG! IT'S LOG!</h2>
-            <p class="story-text">
-              "It's big, it's heavy, it's wood! It's Log! It's Log! It's better than bad, it's
-              good!" The most ridiculous toy commercial ever!
-            </p>
-          </div>
-          <div class="story-back">
-            <p class="story-text">
-              "Everyone wants a Log! You're gonna love it, Log!" Still gets stuck in my head after
-              all these years!
-            </p>
+        <!-- Missing Poster Visual -->
+        <div class="missing-poster">
+          <h3 style="font-size: 1.5rem; margin-bottom: 15px; text-decoration: underline">
+            HAVE YOU SMELLED ME?
+          </h3>
+          <p style="font-size: 1.1rem; margin-bottom: 10px">LAST SEEN: Stimpy's butt</p>
+          <p style="font-size: 1.1rem; margin-bottom: 10px">DESCRIPTION: Stinky, green, gaseous</p>
+          <p style="font-size: 1.1rem; margin-bottom: 15px">ANSWERS TO: *fart noise*</p>
+          <p style="font-size: 0.9rem; font-style: italic">
+            If found, please return to Stimpy J. Cat
+          </p>
+          <p style="font-size: 0.8rem; margin-top: 10px">REWARD: One belly rub</p>
+        </div>
+
+        <!-- Space Madness - History Eraser Button -->
+        <div class="history-eraser" onclick="eraseHistory()">
+          <div style="color: #fff; font-size: 1.5rem; font-weight: bold; text-align: center">
+            DON'T<br />TOUCH<br />IT!
           </div>
         </div>
-      </div>
+        <div style="text-align: center; margin-top: 10px">
+          <p style="font-family: 'Creepster', cursive; font-size: 1.2rem; color: #ff0000">
+            "We'll never know what it does because you're not going to touch it!"
+          </p>
+          <div class="youtube-embed">
+            <iframe
+              src="https://www.youtube.com/embed/GvDCgR_9-fE"
+              frameborder="0"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
 
-      <!-- LOG Visual Element -->
-      <div class="log-section">
-        <div class="log-text">IT'S BETTER THAN BAD, IT'S GOOD!</div>
-        <p
-          style="
-            color: #ffe66d;
-            font-size: 1.2rem;
-            margin-top: 15px;
-            font-family: 'Bungee', cursive;
-          "
+        <!-- Happy Happy Joy Joy Section -->
+        <div class="happy-joy-section">
+          <div class="happy-joy-text">HAPPY HAPPY JOY JOY!</div>
+          <p style="font-size: 1.3rem; color: #fff; margin-top: 15px; font-weight: bold">
+            "I told you I'd shoot, but you didn't believe me! WHY DIDN'T YOU BELIEVE ME?!"
+          </p>
+          <div class="youtube-embed">
+            <iframe
+              src="https://www.youtube.com/embed/Wog-z_Esnw4"
+              frameborder="0"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+
+        <!-- Rubber Nipple Salesmen Section -->
+        <div class="rubber-nipple">
+          <h3
+            style="
+              font-family: 'Creepster', cursive;
+              font-size: 2rem;
+              color: #8b008b;
+              margin-bottom: 10px;
+            "
+          >
+            RUBBER NIPPLE SALESMEN!
+          </h3>
+          <p style="font-size: 1.2rem; color: #4b0082; font-weight: bold">"Call the police!"</p>
+          <p style="font-size: 1rem; color: #8b008b; margin-top: 10px">
+            "We're not hitchhiking anymore, we're riding!"
+          </p>
+          <div class="youtube-embed">
+            <iframe
+              src="https://www.youtube.com/embed/--bcOUAtaSQ"
+              frameborder="0"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+
+        <!-- Sven Hoek Cousin Section -->
+        <div class="sven-section">
+          <h3
+            style="
+              font-family: 'Creepster', cursive;
+              font-size: 2rem;
+              color: #006400;
+              margin-bottom: 10px;
+            "
+          >
+            SVEN HOEK!
+          </h3>
+          <p style="font-size: 1.2rem; color: #000; font-weight: bold">
+            "Stimpy, this is my cousin Sven!"
+          </p>
+          <p style="font-size: 1rem; color: #006400; margin-top: 10px">
+            "He's even stupider than you!"
+          </p>
+          <div class="youtube-embed">
+            <iframe
+              src="https://www.youtube.com/embed/GT0HWjOj7ws"
+              frameborder="0"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+
+        <!-- Jerry the Bellybutton Elf -->
+        <div class="bellybutton-elf">
+          <h3
+            style="
+              font-family: 'Creepster', cursive;
+              font-size: 1.8rem;
+              color: #8b008b;
+              margin-bottom: 10px;
+            "
+          >
+            JERRY THE BELLYBUTTON ELF!
+          </h3>
+          <p style="font-size: 1.1rem; color: #4b0082; font-weight: bold">
+            "I live in your bellybutton!"
+          </p>
+          <p style="font-size: 0.9rem; color: #8b008b; margin-top: 10px">*tiny elf voice*</p>
+          <div class="youtube-embed">
+            <iframe
+              src="https://www.youtube.com/embed/gqqD6dISRBQ"
+              frameborder="0"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+
+        <!-- Stimpy's Invention -->
+        <div class="invention-section">
+          <h3
+            style="
+              font-family: 'Creepster', cursive;
+              font-size: 2rem;
+              color: #ff4500;
+              margin-bottom: 10px;
+            "
+          >
+            STIMPY'S INVENTION!
+          </h3>
+          <p style="font-size: 1.2rem; color: #000; font-weight: bold">"It's my Happy Helmet!"</p>
+          <p style="font-size: 1rem; color: #ff4500; margin-top: 10px">
+            "Now you'll be happy ALL the time!"
+          </p>
+          <div class="youtube-embed">
+            <iframe src="https://www.youtube.com/embed/Ly9f9AwTYo8" frameborder="0" allowfullscreen></iframe>
+          </div>
+        </div>
+          <p style="font-size: 1rem; color: #ff4500; margin-top: 10px">
+            "Now you'll be happy ALL the time!"
+          </p>
+        </div>
+
+        <!-- Health Journey Tribute -->
+        <div class="health-journey">
+          <h2 class="health-title">YOUR EPIC HEALTH ADVENTURE!</h2>
+          <p style="font-size: 1.3rem; margin-bottom: 15px">
+            Dad, your journey from stroke, diabetes, and heart bypass to TOTAL HEALTH REVERSAL is
+            straight out of a Ren & Stimpy episode - CHAOTIC but VICTORIOUS!
+          </p>
+          <p style="font-size: 1.3rem; margin-bottom: 15px">
+            Switching to whole food plant-based? You dropped 80lbs, ditched 18 meds, reversed
+            diabetes! If you hadn't, we might've lost you years ago. But like finding that perfect
+            VCR, you FOUND THE WAY!
+          </p>
+          <p style="font-size: 1.3rem; font-weight: bold; color: #d50000">
+            We're SO GLAD you're here, orbiting at 73! Your strength inspires us all - just like how
+            you saved our R&S marathons!
+          </p>
+        </div>
+
+        <!-- Interactive VCR Button -->
+        <button class="vcr-button" onclick="playEpisode()">
+          <div class="vcr-text">PLAY EPISODE</div>
+        </button>
+
+        <!-- Final Message -->
+        <div class="story-panel">
+          <h2 class="story-title">HAPPY BIRTHDAY, YOU EEEDIOT! (With Love)</h2>
+          <p class="story-text">
+            Dad, thanks for the laughs, the lessons, and for always going the extra mile - whether
+            it's fixing a VCR or transforming your health. You're our hero! Here's to many more
+            years of adventures (and maybe some R&S reruns?)
+          </p>
+          <p style="font-size: 1.5rem; text-align: center; margin-top: 20px">
+            Love, Your 43-Year-Old Son (Who Still Can't Remember as Many Lines as Daniel!)
+          </p>
+        </div>
+
+        <!-- Embedded Happy Birthday Clip -->
+        <div
+          class="video-panel"
+          style="text-align: center; cursor: default"
+          onclick="event.stopPropagation()"
         >
-          EVERYONE WANTS A LOG! YOU'RE GONNA LOVE IT, LOG!
-        </p>
-      </div>
-
-      <!-- New Panel: Tooth Fairy -->
-      <div class="story-panel" onclick="flipPanel(this)">
-        <div class="story-content">
-          <div class="story-front">
-            <h2 class="story-title">THE TOOTH FAIRY'S VISIT!</h2>
-            <p class="story-text">
-              "I am the Tooth Fairy!" From Ren's Toothache - the creepy fairy with teeth and wands
-              who comes to "help" with dental problems!
-            </p>
-          </div>
-          <div class="story-back">
-            <p class="story-text">
-              "Let me help you with that tooth!" One of the most disturbing R&S episodes ever!
-            </p>
-          </div>
+          <h2 class="story-title">WATCH THE HAPPY BIRTHDAY CLIP!</h2>
+          <iframe
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/37bKxaoZbS8"
+            title="Ren & Stimpy Happy Birthday Clip"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+            style="max-width: 100%; z-index: 15; position: relative"
+          ></iframe>
         </div>
-      </div>
 
-      <!-- Dental Nightmare Visual -->
-      <div class="dental-nightmare">
-        <h3
-          style="
-            font-family: 'Creepster', cursive;
-            font-size: 2rem;
-            color: #8b008b;
-            margin-bottom: 10px;
-          "
-        >
-          DENTAL NIGHTMARE!
-        </h3>
-        <p style="font-size: 1.3rem; color: #4b0082; font-weight: bold">"I am the Tooth Fairy!"</p>
-        <p style="font-size: 1rem; color: #8b008b; margin-top: 10px">*creepy fairy laughter*</p>
-      </div>
-
-      <!-- New Panel: Have You Smelled Me Poster -->
-      <div class="story-panel" onclick="flipPanel(this)">
-        <div class="story-content">
-          <div class="story-front">
-            <h2 class="story-title">HAVE YOU SMELLED ME?</h2>
-            <p class="story-text">
-              From the episode where Stimpy's fart runs away - the missing poster that says it all!
-              "If found, please return to Stimpy J. Cat."
-            </p>
-          </div>
-          <div class="story-back">
-            <p class="story-text">
-              "I miss my fart!" Only Ren & Stimpy could make a whole episode about a runaway fart!
-            </p>
-          </div>
+        <!-- Mode Switch Button -->
+        <div style="text-align: center; margin: 40px 0">
+          <button class="mode-button" onclick="switchMode()" style="margin: 0">
+            <span class="mode-icon">📼</span>
+            SWITCH TO VCR MODE
+          </button>
         </div>
-      </div>
-
-      <!-- Missing Poster Visual -->
-      <div class="missing-poster">
-        <h3 style="font-size: 1.5rem; margin-bottom: 15px; text-decoration: underline">
-          HAVE YOU SMELLED ME?
-        </h3>
-        <p style="font-size: 1.1rem; margin-bottom: 10px">LAST SEEN: Stimpy's butt</p>
-        <p style="font-size: 1.1rem; margin-bottom: 10px">DESCRIPTION: Stinky, green, gaseous</p>
-        <p style="font-size: 1.1rem; margin-bottom: 15px">ANSWERS TO: *fart noise*</p>
-        <p style="font-size: 0.9rem; font-style: italic">
-          If found, please return to Stimpy J. Cat
-        </p>
-        <p style="font-size: 0.8rem; margin-top: 10px">REWARD: One belly rub</p>
-      </div>
-
-      <!-- VCR Story Visual -->
-      <div class="vcr-display">
-        <div style="font-size: 1.5rem; margin-bottom: 10px">REN & STIMPY VCR</div>
-        <div style="font-size: 1rem; margin-bottom: 5px">STATUS: RESCUED BY DAD</div>
-        <div style="font-size: 1rem; margin-bottom: 5px">EPISODES SAVED: ALL OF THEM</div>
-        <div style="font-size: 1rem; margin-bottom: 10px">TURBO REWIND: ✓ ACTIVATED</div>
-        <div style="font-size: 0.8rem; animation: blink 1s infinite">● REC ● PLAY ● REWIND</div>
-      </div>
-
-      <!-- New Panel: Don't Wiz on the Electric Fence -->
-      <div class="story-panel" onclick="flipPanel(this)">
-        <div class="story-content">
-          <div class="story-front">
-            <h2 class="story-title">DON'T WIZ ON THE ELECTRIC FENCE!</h2>
-            <p class="story-text">
-              "Don't wiz on the electric fence!" - Classic Ren wisdom from the board game episode.
-              Sometimes the best advice is the most obvious!
-            </p>
-          </div>
-          <div class="story-back">
-            <p class="story-text">
-              "It'll hurt real bad!" Just like Ren's warnings, your life advice always kept us safe,
-              Dad!
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Electric Fence Warning Visual -->
-      <div class="electric-fence">
-        <h3
-          style="
-            font-family: 'Creepster', cursive;
-            font-size: 2rem;
-            color: #ff0000;
-            margin-bottom: 10px;
-          "
-        >
-          DON'T WIZ ON THE ELECTRIC FENCE!
-        </h3>
-        <p style="font-size: 1.2rem; color: #000; font-weight: bold">IT'LL HURT REAL BAD!</p>
-        <div style="font-size: 2rem; margin-top: 10px">⚡💀⚡</div>
-      </div>
-
-      <!-- New Panel: Powdered Toast Man -->
-      <div class="story-panel" onclick="flipPanel(this)">
-        <div class="story-content">
-          <div class="story-front">
-            <h2 class="story-title">POWDERED TOAST MAN!</h2>
-            <p class="story-text">
-              "Quick, man! Cling tenaciously to my buttocks!" The superhero who flies backwards and
-              saves the day with toast powers!
-            </p>
-          </div>
-          <div class="story-back">
-            <p class="story-text">
-              "Leave everything to me!" Just like PTM, you always swooped in to save the day, Dad!
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Powdered Toast Man Logo -->
-      <div class="toast-logo"></div>
-      <div style="text-align: center; margin-top: -10px">
-        <p style="font-family: 'Creepster', cursive; font-size: 1.5rem; color: #8b4513">
-          "CLING TENACIOUSLY TO MY BUTTOCKS!"
-        </p>
-      </div>
-
-      <!-- Space Madness - History Eraser Button -->
-      <div class="history-eraser" onclick="eraseHistory()">
-        <div style="color: #fff; font-size: 1.5rem; font-weight: bold; text-align: center">
-          DON'T<br />TOUCH<br />IT!
-        </div>
-      </div>
-      <div style="text-align: center; margin-top: 10px">
-        <p style="font-family: 'Creepster', cursive; font-size: 1.2rem; color: #ff0000">
-          "We'll never know what it does because you're not going to touch it!"
-        </p>
-      </div>
-
-      <!-- Happy Happy Joy Joy Section -->
-      <div class="happy-joy-section">
-        <div class="happy-joy-text">HAPPY HAPPY JOY JOY!</div>
-        <p style="font-size: 1.3rem; color: #fff; margin-top: 15px; font-weight: bold">
-          "I told you I'd shoot, but you didn't believe me! WHY DIDN'T YOU BELIEVE ME?!"
-        </p>
-      </div>
-
-      <!-- Rubber Nipple Salesmen Section -->
-      <div class="rubber-nipple">
-        <h3
-          style="
-            font-family: 'Creepster', cursive;
-            font-size: 2rem;
-            color: #8b008b;
-            margin-bottom: 10px;
-          "
-        >
-          RUBBER NIPPLE SALESMEN!
-        </h3>
-        <p style="font-size: 1.2rem; color: #4b0082; font-weight: bold">"Call the police!"</p>
-        <p style="font-size: 1rem; color: #8b008b; margin-top: 10px">
-          "We're not hitchhiking anymore, we're riding!"
-        </p>
-      </div>
-
-      <!-- Sven Hoek Cousin Section -->
-      <div class="sven-section">
-        <h3
-          style="
-            font-family: 'Creepster', cursive;
-            font-size: 2rem;
-            color: #006400;
-            margin-bottom: 10px;
-          "
-        >
-          SVEN HOEK!
-        </h3>
-        <p style="font-size: 1.2rem; color: #000; font-weight: bold">
-          "Stimpy, this is my cousin Sven!"
-        </p>
-        <p style="font-size: 1rem; color: #006400; margin-top: 10px">
-          "He's even stupider than you!"
-        </p>
-      </div>
-
-      <!-- Jerry the Bellybutton Elf -->
-      <div class="bellybutton-elf">
-        <h3
-          style="
-            font-family: 'Creepster', cursive;
-            font-size: 1.8rem;
-            color: #8b008b;
-            margin-bottom: 10px;
-          "
-        >
-          JERRY THE BELLYBUTTON ELF!
-        </h3>
-        <p style="font-size: 1.1rem; color: #4b0082; font-weight: bold">
-          "I live in your bellybutton!"
-        </p>
-        <p style="font-size: 0.9rem; color: #8b008b; margin-top: 10px">*tiny elf voice*</p>
-      </div>
-
-      <!-- Stimpy's Invention -->
-      <div class="invention-section">
-        <h3
-          style="
-            font-family: 'Creepster', cursive;
-            font-size: 2rem;
-            color: #ff4500;
-            margin-bottom: 10px;
-          "
-        >
-          STIMPY'S INVENTION!
-        </h3>
-        <p style="font-size: 1.2rem; color: #000; font-weight: bold">"It's my Happy Helmet!"</p>
-        <p style="font-size: 1rem; color: #ff4500; margin-top: 10px">
-          "Now you'll be happy ALL the time!"
-        </p>
-      </div>
-
-      <!-- Health Journey Tribute -->
-      <div class="health-journey">
-        <h2 class="health-title">YOUR EPIC HEALTH ADVENTURE!</h2>
-        <p style="font-size: 1.3rem; margin-bottom: 15px">
-          Dad, your journey from stroke, diabetes, and heart bypass to TOTAL HEALTH REVERSAL is
-          straight out of a Ren & Stimpy episode - CHAOTIC but VICTORIOUS!
-        </p>
-        <p style="font-size: 1.3rem; margin-bottom: 15px">
-          Switching to whole food plant-based? You dropped 80lbs, ditched 18 meds, reversed
-          diabetes! If you hadn't, we might've lost you years ago. But like finding that perfect
-          VCR, you FOUND THE WAY!
-        </p>
-        <p style="font-size: 1.3rem; font-weight: bold; color: #d50000">
-          We're SO GLAD you're here, orbiting at 73! Your strength inspires us all - just like how
-          you saved our R&S marathons!
-        </p>
-      </div>
-
-      <!-- Interactive VCR Button -->
-      <button class="vcr-button" onclick="playEpisode()">
-        <div class="vcr-text">PLAY EPISODE</div>
-      </button>
-
-      <!-- Final Message -->
-      <div class="story-panel">
-        <h2 class="story-title">HAPPY BIRTHDAY, YOU EEEDIOT! (With Love)</h2>
-        <p class="story-text">
-          Dad, thanks for the laughs, the lessons, and for always going the extra mile - whether
-          it's fixing a VCR or transforming your health. You're our hero! Here's to many more years
-          of adventures (and maybe some R&S reruns?)
-        </p>
-        <p style="font-size: 1.5rem; text-align: center; margin-top: 20px">
-          Love, Your 43-Year-Old Son (Who Still Can't Do Voices as Good as Daniel!)
-        </p>
-      </div>
-
-      <!-- Embedded Happy Birthday Clip -->
-      <div
-        class="story-panel video-panel"
-        style="text-align: center; cursor: default"
-        onclick="event.stopPropagation()"
-      >
-        <h2 class="story-title">WATCH THE HAPPY BIRTHDAY CLIP!</h2>
-        <iframe
-          width="560"
-          height="315"
-          src="https://www.youtube.com/embed/37bKxaoZbS8"
-          title="Ren & Stimpy Happy Birthday Clip"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen
-          style="max-width: 100%; z-index: 15; position: relative"
-        ></iframe>
       </div>
     </div>
 
     <script src="https://www.youtube.com/iframe_api"></script>
 
     <script>
+      let currentVcrElement = 1;
+      const totalVcrElements = 15;
+
+      function selectMode(mode) {
+        const modeSelection = document.getElementById("modeSelection");
+        const vcrMode = document.getElementById("vcrMode");
+        const scrollMode = document.getElementById("scrollMode");
+
+        modeSelection.style.display = "none";
+
+        if (mode === "vcr") {
+          vcrMode.style.display = "block";
+          scrollMode.style.display = "none";
+        } else {
+          vcrMode.style.display = "none";
+          scrollMode.style.display = "block";
+        }
+      }
+
+      function switchMode() {
+        const vcrMode = document.getElementById("vcrMode");
+        const scrollMode = document.getElementById("scrollMode");
+
+        if (vcrMode.style.display === "block") {
+          vcrMode.style.display = "none";
+          scrollMode.style.display = "block";
+        } else {
+          vcrMode.style.display = "block";
+          scrollMode.style.display = "none";
+        }
+      }
+
+      function updateVcrCounter() {
+        const counter = document.getElementById("vcrCounter");
+        counter.textContent =
+          String(currentVcrElement).padStart(2, "0") +
+          "/" +
+          String(totalVcrElements).padStart(2, "0");
+      }
+
+      function showVcrElement(elementNum) {
+        // Hide all elements
+        for (let i = 1; i <= totalVcrElements; i++) {
+          const element = document.getElementById(`vcr-${i}`);
+          if (element) {
+            element.classList.remove("active");
+          }
+        }
+
+        // Show current element
+        const currentElement = document.getElementById(`vcr-${elementNum}`);
+        if (currentElement) {
+          currentElement.classList.add("active");
+        }
+
+        updateVcrCounter();
+      }
+
+      function nextElement() {
+        currentVcrElement = currentVcrElement < totalVcrElements ? currentVcrElement + 1 : 1;
+        showVcrElement(currentVcrElement);
+      }
+
+      function previousElement() {
+        currentVcrElement = currentVcrElement > 1 ? currentVcrElement - 1 : totalVcrElements;
+        showVcrElement(currentVcrElement);
+      }
+
+      function goToElement(elementNum) {
+        currentVcrElement = elementNum;
+        showVcrElement(currentVcrElement);
+      }
+
       function flipPanel(panel) {
         panel.classList.toggle("flipped");
         panel.style.animation = "shake 0.5s";
@@ -1342,11 +1883,13 @@
       // Random twitches
       setInterval(() => {
         const panels = document.querySelectorAll(".story-panel");
-        const randomPanel = panels[Math.floor(Math.random() * panels.length)];
-        randomPanel.style.animation = "spaz 0.3s 2";
-        setTimeout(() => {
-          randomPanel.style.animation = "";
-        }, 600);
+        if (panels.length > 0) {
+          const randomPanel = panels[Math.floor(Math.random() * panels.length)];
+          randomPanel.style.animation = "spaz 0.3s 2";
+          setTimeout(() => {
+            randomPanel.style.animation = "";
+          }, 600);
+        }
       }, 3000);
 
       // Parallax on scroll for epic depth
@@ -1362,8 +1905,10 @@
           panel.style.height = "auto"; // Reset
           const front = panel.querySelector(".story-front");
           const back = panel.querySelector(".story-back");
-          const maxHeight = Math.max(front.offsetHeight, back.offsetHeight);
-          panel.style.height = `${maxHeight}px`;
+          if (front && back) {
+            const maxHeight = Math.max(front.offsetHeight, back.offsetHeight);
+            panel.style.height = `${maxHeight}px`;
+          }
         });
       }
 
@@ -1399,10 +1944,6 @@
           }, 500);
         }
       }, 5000);
-
-      // Trigger sound on button press
-      // In playEpisode function
-      // Add: event.target.playVideo();
 
       function eraseHistory() {
         alert("WHAT HAVE YOU DONE?! YOU'VE ERASED HISTORY!");
@@ -1444,6 +1985,16 @@
           50% { filter: brightness(2) hue-rotate(360deg); }
           75% { filter: brightness(0.3) hue-rotate(180deg); }
           100% { filter: brightness(1); }
+        }
+        @keyframes spaz {
+          0%, 100% { transform: rotate(0deg); }
+          25% { transform: rotate(-5deg); }
+          75% { transform: rotate(5deg); }
+        }
+        @keyframes shake {
+          0%, 100% { transform: translateX(0); }
+          25% { transform: translateX(-10px); }
+          75% { transform: translateX(10px); }
         }
       `;
       document.head.appendChild(style);
