@@ -56,6 +56,68 @@
         }
       }
 
+      /* TV Scan Lines */
+      body::after {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: repeating-linear-gradient(
+          0deg,
+          rgba(0, 0, 0, 0.15),
+          rgba(0, 0, 0, 0.15) 1px,
+          transparent 1px,
+          transparent 2px
+        );
+        pointer-events: none;
+        z-index: 3;
+        opacity: 0.3;
+      }
+
+      /* Gross floating elements */
+      .gross-floater {
+        position: fixed;
+        animation: grossFloat 15s infinite ease-in-out;
+        z-index: 0;
+        opacity: 0.6;
+        font-size: 2rem;
+      }
+
+      @keyframes grossFloat {
+        0% {
+          transform: translateY(100vh) scale(1) rotate(0deg);
+        }
+        50% {
+          transform: translateY(50vh) scale(1.5) rotate(180deg);
+        }
+        100% {
+          transform: translateY(0) scale(1) rotate(360deg);
+        }
+      }
+
+      /* Bulging veins on hover */
+      .story-panel:hover::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(circle, rgba(213, 0, 0, 0.3), transparent);
+        animation: bulge 1s infinite alternate;
+      }
+
+      @keyframes bulge {
+        0% {
+          transform: scale(1);
+        }
+        100% {
+          transform: scale(1.2);
+        }
+      }
+
       .container {
         max-width: 1200px;
         margin: 0 auto;
@@ -339,6 +401,16 @@
     <div class="floater floater5">❤️</div>
     <div class="floater floater6">🎂</div>
     <div class="floater floater7">🌍</div>
+    <div class="gross-floater" style="left: 15%; animation-delay: 0s">💦</div>
+    <!-- Sweat -->
+    <div class="gross-floater" style="left: 25%; animation-delay: 2s">👁️</div>
+    <!-- Eyeball -->
+    <div class="gross-floater" style="left: 45%; animation-delay: 4s">🦠</div>
+    <!-- Booger -->
+    <div class="gross-floater" style="left: 55%; animation-delay: 6s">💥</div>
+    <!-- Explosion -->
+    <div class="gross-floater" style="left: 75%; animation-delay: 8s">🩸</div>
+    <!-- Vein -->
 
     <div class="container">
       <!-- Main Title -->
@@ -444,6 +516,8 @@
       </div>
     </div>
 
+    <script src="https://www.youtube.com/iframe_api"></script>
+
     <script>
       function flipPanel(panel) {
         panel.classList.toggle("flipped");
@@ -494,6 +568,40 @@
 
       window.addEventListener("load", setPanelHeights);
       window.addEventListener("resize", setPanelHeights);
+
+      function onYouTubeIframeAPIReady() {
+        new YT.Player("rs-player", {
+          height: "0",
+          width: "0",
+          videoId: "YOUR_RS_CLIP_ID", // Replace with actual ID, e.g. Happy Happy Joy Joy clip
+          playerVars: { autoplay: 0, loop: 1 },
+          events: { onReady: onPlayerReady },
+        });
+      }
+
+      function onPlayerReady(event) {
+        // Play on some interactions
+      }
+
+      // Add random chaos events
+      setInterval(() => {
+        if (Math.random() > 0.7) {
+          document.body.style.filter = "hue-rotate(90deg)";
+          setTimeout(() => {
+            document.body.style.filter = "";
+          }, 500);
+        }
+        if (Math.random() > 0.8) {
+          document.body.style.animation = "shake 0.5s";
+          setTimeout(() => {
+            document.body.style.animation = "";
+          }, 500);
+        }
+      }, 5000);
+
+      // Trigger sound on button press
+      // In playEpisode function
+      // Add: event.target.playVideo();
     </script>
   </body>
 </html>
