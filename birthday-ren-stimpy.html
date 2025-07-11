@@ -479,6 +479,242 @@
         transform: rotate(45deg);
       }
 
+      /* Space Madness - History Eraser Button */
+      .history-eraser {
+        background: radial-gradient(circle, #ff0000, #8b0000);
+        border: 15px solid #000;
+        border-radius: 50%;
+        width: 250px;
+        height: 250px;
+        margin: 40px auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        cursor: pointer;
+        box-shadow: inset -10px -10px 20px rgba(0, 0, 0, 0.5), 0 20px 40px rgba(0, 0, 0, 0.5);
+        animation: buttonPulse 2s infinite;
+      }
+
+      @keyframes buttonPulse {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.05);
+        }
+      }
+
+      .history-eraser::before {
+        content: "HISTORY ERASER BUTTON";
+        position: absolute;
+        top: -30px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #000;
+        color: #fff;
+        padding: 5px 15px;
+        font-size: 0.9rem;
+        font-weight: bold;
+        white-space: nowrap;
+      }
+
+      .history-eraser:hover {
+        animation: buttonThrob 0.3s infinite;
+      }
+
+      @keyframes buttonThrob {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.1);
+        }
+      }
+
+      /* Happy Happy Joy Joy */
+      .happy-joy-section {
+        background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #ffe66d, #ff6b6b);
+        background-size: 300% 300%;
+        animation: happyGradient 3s ease infinite;
+        border: 10px solid #ff1744;
+        border-radius: 30px;
+        padding: 40px;
+        margin: 30px 0;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      @keyframes happyGradient {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      .happy-joy-text {
+        font-family: "Creepster", cursive;
+        font-size: 3rem;
+        color: #fff;
+        text-shadow: 3px 3px 0 #000;
+        animation: joyBounce 0.5s infinite alternate;
+      }
+
+      @keyframes joyBounce {
+        0% {
+          transform: translateY(0) scale(1);
+        }
+        100% {
+          transform: translateY(-10px) scale(1.1);
+        }
+      }
+
+      /* Rubber Nipple Salesmen */
+      .rubber-nipple {
+        background: #ffc0cb;
+        border: 8px solid #ff69b4;
+        border-radius: 20px;
+        padding: 30px;
+        margin: 30px 0;
+        text-align: center;
+        position: relative;
+        animation: nippleWiggle 1s infinite;
+      }
+
+      @keyframes nippleWiggle {
+        0%,
+        100% {
+          transform: rotate(-1deg);
+        }
+        50% {
+          transform: rotate(1deg);
+        }
+      }
+
+      .rubber-nipple::before {
+        content: "🍼";
+        position: absolute;
+        top: -20px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 3rem;
+        background: #ff69b4;
+        border-radius: 50%;
+        padding: 10px;
+      }
+
+      /* Sven Hoek Cousin */
+      .sven-section {
+        background: #90ee90;
+        border: 10px dotted #006400;
+        border-radius: 25px;
+        padding: 30px;
+        margin: 30px 0;
+        text-align: center;
+        position: relative;
+        animation: svenBounce 2s infinite ease-in-out;
+      }
+
+      @keyframes svenBounce {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-15px);
+        }
+      }
+
+      .sven-section::before {
+        content: "🤪";
+        position: absolute;
+        top: -25px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 3rem;
+        background: #006400;
+        border-radius: 50%;
+        padding: 10px;
+      }
+
+      /* Jerry the Bellybutton Elf */
+      .bellybutton-elf {
+        background: #dda0dd;
+        border: 8px solid #8b008b;
+        border-radius: 50px;
+        padding: 25px;
+        margin: 30px 0;
+        text-align: center;
+        position: relative;
+        animation: elfTwinkle 1.5s infinite;
+      }
+
+      @keyframes elfTwinkle {
+        0%,
+        100% {
+          box-shadow: 0 0 20px #8b008b;
+        }
+        50% {
+          box-shadow: 0 0 40px #8b008b, inset 0 0 20px #8b008b;
+        }
+      }
+
+      .bellybutton-elf::before {
+        content: "🧚‍♂️";
+        position: absolute;
+        top: -20px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 2.5rem;
+        background: #8b008b;
+        border-radius: 50%;
+        padding: 8px;
+      }
+
+      /* Stimpy's Invention */
+      .invention-section {
+        background: linear-gradient(135deg, #ffd700, #ffb347);
+        border: 12px solid #ff4500;
+        border-radius: 15px;
+        padding: 30px;
+        margin: 30px 0;
+        text-align: center;
+        position: relative;
+        animation: inventionSpark 2s infinite;
+      }
+
+      @keyframes inventionSpark {
+        0%,
+        100% {
+          transform: scale(1);
+          filter: brightness(1);
+        }
+        50% {
+          transform: scale(1.02);
+          filter: brightness(1.2);
+        }
+      }
+
+      .invention-section::before {
+        content: "⚡🔬⚡";
+        position: absolute;
+        top: -25px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 2rem;
+        background: #ff4500;
+        border-radius: 20px;
+        padding: 8px 15px;
+      }
+
       /* Health Journey - Epic Version */
       .health-journey {
         background: linear-gradient(135deg, #4ecdc4, #ffe66d);
@@ -933,6 +1169,100 @@
         </p>
       </div>
 
+      <!-- Space Madness - History Eraser Button -->
+      <div class="history-eraser" onclick="eraseHistory()">
+        <div style="color: #fff; font-size: 1.5rem; font-weight: bold; text-align: center">
+          DON'T<br />TOUCH<br />IT!
+        </div>
+      </div>
+      <div style="text-align: center; margin-top: 10px">
+        <p style="font-family: 'Creepster', cursive; font-size: 1.2rem; color: #ff0000">
+          "We'll never know what it does because you're not going to touch it!"
+        </p>
+      </div>
+
+      <!-- Happy Happy Joy Joy Section -->
+      <div class="happy-joy-section">
+        <div class="happy-joy-text">HAPPY HAPPY JOY JOY!</div>
+        <p style="font-size: 1.3rem; color: #fff; margin-top: 15px; font-weight: bold">
+          "I told you I'd shoot, but you didn't believe me! WHY DIDN'T YOU BELIEVE ME?!"
+        </p>
+      </div>
+
+      <!-- Rubber Nipple Salesmen Section -->
+      <div class="rubber-nipple">
+        <h3
+          style="
+            font-family: 'Creepster', cursive;
+            font-size: 2rem;
+            color: #8b008b;
+            margin-bottom: 10px;
+          "
+        >
+          RUBBER NIPPLE SALESMEN!
+        </h3>
+        <p style="font-size: 1.2rem; color: #4b0082; font-weight: bold">"Call the police!"</p>
+        <p style="font-size: 1rem; color: #8b008b; margin-top: 10px">
+          "We're not hitchhiking anymore, we're riding!"
+        </p>
+      </div>
+
+      <!-- Sven Hoek Cousin Section -->
+      <div class="sven-section">
+        <h3
+          style="
+            font-family: 'Creepster', cursive;
+            font-size: 2rem;
+            color: #006400;
+            margin-bottom: 10px;
+          "
+        >
+          SVEN HOEK!
+        </h3>
+        <p style="font-size: 1.2rem; color: #000; font-weight: bold">
+          "Stimpy, this is my cousin Sven!"
+        </p>
+        <p style="font-size: 1rem; color: #006400; margin-top: 10px">
+          "He's even stupider than you!"
+        </p>
+      </div>
+
+      <!-- Jerry the Bellybutton Elf -->
+      <div class="bellybutton-elf">
+        <h3
+          style="
+            font-family: 'Creepster', cursive;
+            font-size: 1.8rem;
+            color: #8b008b;
+            margin-bottom: 10px;
+          "
+        >
+          JERRY THE BELLYBUTTON ELF!
+        </h3>
+        <p style="font-size: 1.1rem; color: #4b0082; font-weight: bold">
+          "I live in your bellybutton!"
+        </p>
+        <p style="font-size: 0.9rem; color: #8b008b; margin-top: 10px">*tiny elf voice*</p>
+      </div>
+
+      <!-- Stimpy's Invention -->
+      <div class="invention-section">
+        <h3
+          style="
+            font-family: 'Creepster', cursive;
+            font-size: 2rem;
+            color: #ff4500;
+            margin-bottom: 10px;
+          "
+        >
+          STIMPY'S INVENTION!
+        </h3>
+        <p style="font-size: 1.2rem; color: #000; font-weight: bold">"It's my Happy Helmet!"</p>
+        <p style="font-size: 1rem; color: #ff4500; margin-top: 10px">
+          "Now you'll be happy ALL the time!"
+        </p>
+      </div>
+
       <!-- Health Journey Tribute -->
       <div class="health-journey">
         <h2 class="health-title">YOUR EPIC HEALTH ADVENTURE!</h2>
@@ -1073,6 +1403,50 @@
       // Trigger sound on button press
       // In playEpisode function
       // Add: event.target.playVideo();
+
+      function eraseHistory() {
+        alert("WHAT HAVE YOU DONE?! YOU'VE ERASED HISTORY!");
+        document.body.style.animation = "historyErase 2s";
+        setTimeout(() => {
+          document.body.style.animation = "";
+        }, 2000);
+
+        // Create chaos
+        for (let i = 0; i < 30; i++) {
+          createChaos();
+        }
+      }
+
+      function createChaos() {
+        const chaos = document.createElement("div");
+        chaos.style.position = "fixed";
+        chaos.style.fontSize = "2rem";
+        chaos.style.left = Math.random() * 100 + "%";
+        chaos.style.top = Math.random() * 100 + "%";
+        chaos.style.zIndex = "9999";
+        chaos.style.color = "#ff0000";
+        chaos.textContent = ["NOOOO!", "WHAT?!", "SPACE MADNESS!", "HISTORY!", "ERASED!"][
+          Math.floor(Math.random() * 5)
+        ];
+        document.body.appendChild(chaos);
+
+        setTimeout(() => {
+          chaos.remove();
+        }, 3000);
+      }
+
+      // Add history erase animation
+      const style = document.createElement("style");
+      style.textContent = `
+        @keyframes historyErase {
+          0% { filter: brightness(1); }
+          25% { filter: brightness(0.5) hue-rotate(180deg); }
+          50% { filter: brightness(2) hue-rotate(360deg); }
+          75% { filter: brightness(0.3) hue-rotate(180deg); }
+          100% { filter: brightness(1); }
+        }
+      `;
+      document.head.appendChild(style);
     </script>
   </body>
 </html>
